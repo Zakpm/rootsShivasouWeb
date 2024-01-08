@@ -1,0 +1,8 @@
+.tab-container{
+  margin-top: 10px;
+}
+.table-img {
+  width: 30px; /* ou toute autre taille appropriée */
+  height: auto; /* pour conserver les proportions de l'image */
+}
+

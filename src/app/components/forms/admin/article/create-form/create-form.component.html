@@ -1,0 +1,47 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+
+    <div class="col-md-6">
+        <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+
+          <div class="row">
+            <div class="col-md-8 mb-2">
+              <label for="title" class="form-label">Titre</label>
+              <input type="text" formControlName="title" id="title" class="form-control">
+            </div>
+            <div class="col-md-4 mb-2">
+              <label for="categoryId" class="form-label">Category</label>
+              <select formControlName="categoryId" id="categoryId" class="form-control">
+                <option *ngFor="let category of categories" [value]="category.id">{{ category.title }}</option>
+              </select>
+            </div>
+            <div class="col-md-4 mb-2">
+              <label for="userId" class="form-label">User</label>
+              <input type="text" formControlName="userId" id="userId" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-2">
+              <label for="image" class="form-label">Image</label>
+              <input type="file" formControlName="image" id="image" class="form-control" accept="image/*" multiple>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-2">
+              <label for="video" class="form-label">Video</label>
+              <input type="text" formControlName="video" id="video" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-2">
+              <label for="content" class="form-label">Contenu</label>
+              <editor formControlName="content" id="content"></editor>
+            </div>
+          </div>
+
+
+          <button type="submit" class="btn btn-primary" [disabled]="!createForm.valid">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>

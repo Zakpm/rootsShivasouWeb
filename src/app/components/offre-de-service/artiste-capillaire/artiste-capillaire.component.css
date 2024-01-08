@@ -1,0 +1,10 @@
+img {
+  max-height: 200px;
+  width: auto;
+}
+.card-img-top {
+  max-height: 500px; /* Ajustez cette valeur selon vos besoins */
+  object-fit: contain; /* Ajuste l'image pour qu'elle soit entièrement visible */
+  width: 100%; /* Assurez-vous que l'image s'étend sur toute la largeur du conteneur */
+  height: auto; /* La hauteur s'ajuste pour maintenir l'aspect de l'image */
+}

@@ -1,0 +1,17 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+
+    <div class="col-md-6">
+      <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-md-8 mb-2">
+              <label for="title" class="form-label">Titre</label>
+              <input type="text" formControlName="title" id="title" class="form-control">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" [disabled]="!categoryForm.valid">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,28 @@
+<!-- connexion-fom.component.html -->
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6 mx-auto shadow rounded p-4 formBgColor">
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="mb-3">
+          <label for="loginInput" class="form-label">Email or Nickname</label>
+          <input type="text" formControlName="login" class="form-control" id="loginInput">
+        </div>
+        <div class="mb-3">
+          <label for="passwordInput" class="form-label">Password</label>
+          <input type="password" formControlName="password" class="form-control" id="passwordInput">
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+        <a class="mx-3" routerLink="/reset-password/request">Mot de passe oublié ?</a>
+      </form>
+      <div class="text-end p-3">
+        <a routerLink="/inscription">inscription</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

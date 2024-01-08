@@ -1,0 +1,41 @@
+<app-navbar-admin></app-navbar-admin>
+<div class="container ">
+  <div class="row d-flex justify-content-around">
+
+    <h1 id="title" class="text-center my-3 display-5" >Espace administration</h1>
+
+    <div class="card text-bg-primary mb-3">
+      <div class="card-header">Nombre d'utilisateurs</div>
+      <div class="card-body">
+        <p class="card-text">Nombre total d'utilisateurs inscrits : {{ usersCount }}</p>
+      </div>
+    </div>
+
+    <div class="card text-bg-secondary mb-3">
+      <div class="card-header">Nombre d'articles</div>
+      <div class="card-body">
+        <p class="card-text">Nombre total d'articles enregistrés : {{ postsCount }}</p>
+      </div>
+    </div>
+
+    <div class="card text-bg-success mb-3">
+      <div class="card-header">Nombre de catégories</div>
+      <div class="card-body">
+        <p class="card-text">Nombre total de catégories enregistrés : {{ categoriesCount }}</p>
+      </div>
+    </div>
+
+    <div class="card text-bg-warning mb-3">
+      <div class="card-header">Nombre de contacts</div>
+      <div class="card-body">
+        <p class="card-text">Nombre total de contacts enregistrés : {{ contactCount }}</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+
+

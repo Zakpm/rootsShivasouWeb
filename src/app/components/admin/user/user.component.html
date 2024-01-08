@@ -1,0 +1,58 @@
+<app-navbar-admin></app-navbar-admin>
+<h1 id="title" class="text-center my-3 display-5" >Utilisateurs</h1>
+<div class="tab-container col-md-12 mb-3">
+  <ngx-datatable class="material container striped" [rows]="rows" [columnMode]="'flex'" [headerHeight]="50" [footerHeight]="50" rowHeight="auto">
+      <ngx-datatable-column name="Prénom" [flexGrow]="2">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.first_name }}
+          </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Nom" [flexGrow]="2">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.last_name }}
+          </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Email" [flexGrow]="2">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.email }}
+          </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Role" [flexGrow]="2">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <div *ngFor="let role of row?.roles">
+              {{ transformRole(role) }}
+            </div>
+          </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- Colonne pour le bouton de suppression -->
+      <ngx-datatable-column name="Actions" [flexGrow]="1">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <a (click)="$event.preventDefault(); confirmAndDelete(row.id)" class="text-danger m-2" href="#" title="Supprimer">
+                <i class="fa-solid fa-trash-can"></i>
+            </a>
+
+            <a class="text-primary m-2" [routerLink]="['/admin/user/update', row.id]" title="Modifier">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+      </ng-template>
+  </ngx-datatable-column>
+
+
+
+      <datatable-pager
+          [pagerLeftArrowIcon]="'datatable-icon-left'"
+          [pagerRightArrowIcon]="'datatable-icon-right'"
+          [pagerPreviousIcon]="'datatable-icon-prev'"
+          [pagerNextIcon]="'datatable-icon-skip'"
+          [page]="curPage"
+          [size]="pageSize"
+          [count]="rowCount"
+          [hidden]="!((rowCount / pageSize) > 1)"
+          (change)="setPage($event)">
+      </datatable-pager>
+  </ngx-datatable>
+</div>
+
+

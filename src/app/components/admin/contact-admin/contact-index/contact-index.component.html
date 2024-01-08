@@ -1,0 +1,19 @@
+<app-navbar-admin></app-navbar-admin>
+<h1 id="title" class="text-center my-3 display-5" >Contact</h1>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div *ngFor="let contact of contacts" class="col-md-8">
+      <div class="card my-2">
+        <div class="card-body">
+          <h5 class="card-title">Message de : {{ contact.first_name }} {{ contact.last_name }}</h5>
+          <p class="card-text"><strong>Email:</strong> {{ contact.email }}</p>
+          <p class="card-text"><strong>Numéro:</strong> {{ contact.phone }}</p>
+          <p class="card-text"><strong>Sujet:</strong> {{ contact.object }}</p>
+          <p class="card-text"><strong>Contenu:</strong> {{ contact.content }}</p>
+          <p class="card-text"><small class="text-muted">Créé le {{ contact.created_at | date }}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

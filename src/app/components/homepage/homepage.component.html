@@ -1,0 +1,42 @@
+<h1 id="title" class="text-center my-5 display-5" >Roots Shivasou</h1>
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-6 text-center">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae minima a aperiam reprehenderit temporibus illo officia facilis magni, quo pariatur fugiat doloribus. Dolorem ad veritatis consequatur animi nihil enim ullam?
+      Possimus, eveniet nostrum consequuntur facere, ipsa obcaecati architecto iusto dicta dolorem sequi non ullam natus labore nam odio sint ratione dignissimos! Eveniet repudiandae, at accusantium obcaecati similique libero numquam quis!
+      Voluptates repellendus sunt nulla id natus earum saepe aperiam, error excepturi exercitationem eius sed aliquam veritatis doloribus eveniet dolor deleniti laudantium quia qui recusandae pariatur consequatur. Odio similique recusandae tenetur!
+      Dolor quis optio quos beatae, eos rem, repudiandae at hic dicta consectetur officiis illum ratione saepe unde corrupti a sit quisquam deleniti animi ut non numquam! Accusantium, in. Nemo, odit!</p>
+    </div>
+    <div class="col-md-6">
+      <img id="img-homepage" src="assets/images/logo.png" alt="" class="mx-auto d-block">
+    </div>
+  </div>
+
+  <hr class="mt-5 col-lg-10 mx-auto">
+  <p class="text-center">Mes derniers articles</p>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="container text-center my-2">
+        <div *ngIf="posts.length > 0; else noPosts" class="row">
+          <div class="card-group">
+            <div *ngFor="let post of posts" class="col-md-4 mb-3">
+              <div class="card card-config">
+                <img *ngIf="post.image" [src]="imageUrlBase + post.image[0]" alt="{{ post.title }}" class="card-img-top img-fluid">
+                <div class="card-body">
+                  <h2 class="card-title">{{ post.title }}</h2>
+                  <p class="card-text" [innerHTML]="post.content | truncate:150"></p>
+                  <a [routerLink]="['/showPost', post.id]" class="btn btn-primary">Lire</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #noPosts>
+          <p>Aucun post trouvé.</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

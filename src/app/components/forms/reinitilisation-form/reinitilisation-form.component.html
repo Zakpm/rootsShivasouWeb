@@ -1,0 +1,29 @@
+
+<div class="container my-5">
+  <div class="row justify-content-center">
+
+    <div class="col-md-4">
+
+        <form [formGroup]="resetForm" (ngSubmit)="onSubmit()">
+
+          <div class="row">
+            <div class="mb-2">
+              <label for="password" class="form-label">Mot de passe</label>
+              <input type="password" formControlName="password" id="password" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-2">
+              <label for="confirmPassword" class="form-label">Confirmation du mot de passe</label>
+              <input type="password" formControlName="confirmPassword" id="confirmPassword" class="form-control">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" [disabled]="!resetForm.valid">Submit</button>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+

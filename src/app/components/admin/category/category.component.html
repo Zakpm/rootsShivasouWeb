@@ -1,0 +1,41 @@
+<app-navbar-admin></app-navbar-admin>
+<h1 id="title" class="text-center my-3 display-5" >Categories</h1>
+<div class="d-flex justify-content-end align-items-center m-3">
+  <a class="btn btn-primary" [routerLink]="['/admin/category/create']"><i class="fa-solid fa-plus"></i> Ajouter une category</a>
+</div>
+<div class="tab-container col-md-12 mb-3">
+  <ngx-datatable class="material container striped" [rows]="rows" [columnMode]="'flex'" [headerHeight]="50" [footerHeight]="50" rowHeight="auto">
+      <ngx-datatable-column name="Titre" [flexGrow]="2">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.title | titlecase }}
+          </ng-template>
+      </ngx-datatable-column>
+
+      <!-- Colonne pour le bouton de suppression -->
+      <ngx-datatable-column name="Actions" [flexGrow]="1">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <a (click)="$event.preventDefault(); confirmAndDelete(row.id)" class="text-danger m-2" href="#" title="Supprimer">
+                <i class="fa-solid fa-trash-can"></i>
+            </a>
+    
+          <a class="text-primary m-2" [routerLink]="['/admin/category/update', row.id]" title="Modifier">
+              <i class="fa-solid fa-pen-to-square"></i>
+          </a>
+      </ng-template>
+  </ngx-datatable-column>
+
+
+
+      <datatable-pager
+          [pagerLeftArrowIcon]="'datatable-icon-left'"
+          [pagerRightArrowIcon]="'datatable-icon-right'"
+          [pagerPreviousIcon]="'datatable-icon-prev'"
+          [pagerNextIcon]="'datatable-icon-skip'"
+          [page]="curPage"
+          [size]="pageSize"
+          [count]="rowCount"
+          [hidden]="!((rowCount / pageSize) > 1)"
+          (change)="setPage($event)">
+      </datatable-pager>
+  </ngx-datatable>
+</div>

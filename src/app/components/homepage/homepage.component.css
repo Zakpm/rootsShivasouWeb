@@ -1,0 +1,22 @@
+.img-homepage {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-config {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 400px; /* Hauteur fixe pour la carte */
+  justify-content: space-between; /* Organise le contenu de la carte */
+}
+
+.card-img-top {
+  max-height: 200px; /* Ajustez cette valeur selon vos besoins */
+  object-fit: cover; /* Cela permet de couvrir la zone sans déformer l'image */
+  width: 100%;
+}
+
+.card-body {
+  margin-top: auto; /* Pousse le card-body vers le bas */
+}
