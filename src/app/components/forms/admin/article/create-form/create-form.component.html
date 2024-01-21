@@ -17,12 +17,15 @@
             </div>
             <div class="col-md-4 mb-2">
               <label for="userId" class="form-label">User</label>
-              <input type="text" formControlName="userId" id="userId" class="form-control">
+              <select formControlName="userId" id="userId" class="form-control">
+                <option *ngFor="let user of users" [value]="user.id">{{ user.first_name }} {{ user.last_name }}</option>
+              </select>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12 mb-2">
               <label for="image" class="form-label">Image</label>
+              <p>La taille d'une image ne doit pas dépasser 2mb. La taille d'une requête ne doit pas dépasser 10mb</p>
               <input type="file" formControlName="image" id="image" class="form-control" accept="image/*" multiple>
             </div>
           </div>
@@ -40,7 +43,7 @@
           </div>
 
 
-          <button type="submit" class="btn btn-primary" [disabled]="!createForm.valid">Submit</button>
+          <button type="submit" class="btn btn-primary mb-5" [disabled]="!createForm.valid">Submit</button>
         </form>
       </div>
     </div>

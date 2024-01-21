@@ -6,3 +6,7 @@
   height: auto; /* pour conserver les proportions de l'image */
 }
 
+body {
+  margin-bottom: 50px;
+}
+

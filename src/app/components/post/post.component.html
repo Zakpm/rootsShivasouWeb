@@ -9,7 +9,8 @@
           <div class="card-body">
             <h2 class="card-title">{{ post.title }}</h2>
             <p class="card-text" [innerHTML]="post.content | truncate:150"></p>
-            <a [routerLink]="['/showPost', post.id]" class="btn btn-primary">Lire</a>
+
+            <a [routerLink]="['/showPost', post.id]" class="btn btn-dark">Lire</a>
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@
 <div class="d-flex justify-content-end align-items-center m-3">
   <a class="btn btn-primary" [routerLink]="['/admin/article/create']"><i class="fa-solid fa-plus"></i> Ajouter un article</a>
 </div>
-<div class="tab-container col-md-12 mb-3">
+<div class="tab-container col-md-12 mb-5">
   <ngx-datatable class="material container striped" [rows]="rows" [columnMode]="'flex'" [headerHeight]="50" [footerHeight]="50" rowHeight="auto">
       <ngx-datatable-column name="Titre" [flexGrow]="2">
           <ng-template let-row="row" ngx-datatable-cell-template>
@@ -58,19 +58,6 @@
       </ng-template>
   </ngx-datatable-column>
 
-
-
-            <datatable-pager
-                [pagerLeftArrowIcon]="'datatable-icon-left'"
-                [pagerRightArrowIcon]="'datatable-icon-right'"
-                [pagerPreviousIcon]="'datatable-icon-prev'"
-                [pagerNextIcon]="'datatable-icon-skip'"
-                [page]="curPage"
-                [size]="pageSize"
-                [count]="rowCount"
-                [hidden]="!((rowCount / pageSize) > 1)"
-                (change)="setPage($event)">
-              </datatable-pager>
       <!-- Ajoutez plus de colonnes si nécessaire -->
   </ngx-datatable>
 </div>

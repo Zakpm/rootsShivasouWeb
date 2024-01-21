@@ -12,6 +12,7 @@
 }
 
 .card-img-top {
+  min-height: 150px;
   max-height: 200px; /* Ajustez cette valeur selon vos besoins */
   object-fit: cover; /* Cela permet de couvrir la zone sans déformer l'image */
   width: 100%;
@@ -19,4 +20,25 @@
 
 .card-body {
   margin-top: auto; /* Pousse le card-body vers le bas */
+  flex-grow: 1;
+}
+
+.card-title, .card-text {
+  overflow: auto; /* Ajoute un défilement si le contenu dépasse */
+}
+
+.card-title {
+  font-size: 20px; /* Ajustez la taille de la police selon vos besoins */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 15px;
+}
+
+.btn {
+  background-color: #753742;
 }

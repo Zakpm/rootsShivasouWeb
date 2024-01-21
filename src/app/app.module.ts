@@ -59,6 +59,12 @@ import { UserPasswordUpdateComponent } from './components/user/user-password-upd
 import { UpdatePasswordComponent } from './components/forms/update-password/update-password.component';
 import { ContactAdminComponent } from './components/admin/contact-admin/contact-admin.component';
 import { ContactIndexComponent } from './components/admin/contact-admin/contact-index/contact-index.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MentionsLegalsComponent } from './components/mentions-legals/mentions-legals.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -113,6 +119,7 @@ import { ContactIndexComponent } from './components/admin/contact-admin/contact-
     UpdatePasswordComponent,
     ContactAdminComponent,
     ContactIndexComponent,
+    MentionsLegalsComponent,
   ],
   imports: [
     BrowserModule,
@@ -120,7 +127,11 @@ import { ContactIndexComponent } from './components/admin/contact-admin/contact-
     HttpClientModule,
     ReactiveFormsModule,
     NgxDatatableModule,
-    EditorModule
+    EditorModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [
     AuthResetGuard,

@@ -9,6 +9,7 @@ import { ContactService } from 'src/app/services/contact.service';
 })
 export class ContactFormComponent implements OnInit {
   contactForm!: FormGroup;
+  errorMessage: string = '';
 
   constructor(private fb: FormBuilder, private contactService: ContactService) { }
 
@@ -29,11 +30,11 @@ export class ContactFormComponent implements OnInit {
       this.contactService.addContact(this.contactForm.value).subscribe(
         response => {
           alert('Votre message a été envoyé avec succès!');
-          // Vous pouvez également réinitialiser le formulaire ici si nécessaire
+          // réinitialiser le formulaire ici si nécessaire
           this.contactForm.reset();
         },
         error => {
-          alert('Une erreur est survenue lors de l\'envoie du message.');
+          this.errorMessage = 'Il y a une erreur dans l\'envoie du message';
         }
       );
     }

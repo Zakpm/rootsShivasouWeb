@@ -4,14 +4,24 @@
     <div class="col-md-8 col-lg-6 mx-auto shadow rounded p-4 formBgColor">
       <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
 
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+
         <div class="row">
           <div class="col-md-6 mb-2">
             <label for="firstName" class="form-label">Nom</label>
             <input type="text" formControlName="first_name" id="firstName" class="form-control">
+            <div *ngIf="inscriptionForm.get('first_name')?.errors?.['required'] && inscriptionForm.get('first_name')?.touched" class="text-danger">
+              Le nom est obligatoire.
+            </div>
           </div>
           <div class=" col-md-6 mb-2">
             <label for="lastName" class="form-label">Prénom</label>
             <input type="text" formControlName="last_name" id="lastName" class="form-control">
+            <div *ngIf="inscriptionForm.get('last_name')?.errors?.['required'] && inscriptionForm.get('last_name')?.touched" class="text-danger">
+              Le prénom est obligatoire.
+            </div>
           </div>
         </div>
 
@@ -20,30 +30,51 @@
           <div class=" col-md-6 mb-2">
             <label for="nickname" class="form-label">Pseudo</label>
             <input type="text" formControlName="nickname" id="nickname" class="form-control">
+            <div *ngIf="inscriptionForm.get('nickname')?.errors?.['required'] && inscriptionForm.get('nickname')?.touched" class="text-danger">
+              Le pseudo est obligatoire.
+            </div>
           </div>
           <div class="col-md-6 mb-2">
-            <label for="email" class="form-label">Mail</label>
+            <label for="email" class="form-label">Email</label>
             <input type="email" formControlName="email" id="email" class="form-control">
+            <div *ngIf="inscriptionForm.get('email')?.errors?.['required'] && inscriptionForm.get('email')?.touched" class="text-danger">
+              L'email est obligatoire.
+            </div>
+            <div *ngIf="inscriptionForm.get('email')?.errors?.['email'] && inscriptionForm.get('email')?.touched" class="text-danger">
+              Veuillez entrer une adresse email valide.
+            </div>
           </div>
         </div>
 
         <div class="mb-2">
           <label for="password" class="form-label">Mot de passe</label>
           <input type="password" formControlName="password" id="password" class="form-control">
+          <div *ngIf="inscriptionForm.get('password')?.touched">
+            <small class="text-danger"
+                   *ngIf="inscriptionForm.get('password')?.errors?.['invalidPassword']">
+              Le mot de passe doit contenir au moins une lettre minuscule, une majuscule, un chiffre et un caractère spécial.
+            </small>
+          </div>
         </div>
 
         <div class="mb-2">
           <label for="confirmPassword" class="form-label">Confirmation du mot de passe</label>
           <input type="password" formControlName="confirmPassword" id="confirmPassword" class="form-control">
+          <div *ngIf="inscriptionForm.get('confirmPassword')?.touched">
+            <small class="text-danger"
+                   *ngIf="inscriptionForm.errors?.['mismatch']">
+              Les mots de passe ne correspondent pas.
+            </small>
+          </div>
         </div>
 
         <div class="row">
-          <div class=" col-md-6 mb-2">
+          <div class=" col-md-3 mb-2">
             <label for="date_naissance" class="form-label">Date de naissance</label>
-            <input type="text" formControlName="date_naissance" id="date_naissance" class="form-control">
+            <input type="date" formControlName="date_naissance" id="date_naissance" class="form-control">
           </div>
 
-          <div class="col-md-6 mb-2">
+          <div class="col-md-3 mb-2">
             <label for="genre" class="form-label">Genre</label>
             <select formControlName="genre" id="genre" class="form-control">
               <option value="HOMME">Homme</option>
@@ -52,9 +83,54 @@
             </select>
           </div>
 
-        </div>
 
-        <button type="submit" class="btn btn-primary" [disabled]="!inscriptionForm.valid">Submit</button>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mt-2">
+            <button type="submit" class="btn btn-primary buttonColor" [disabled]="!inscriptionForm.valid">Inscription</button>
+          </div>
+          <div class="col-md-8 mt-3">
+            <input class="mx-2" type="checkbox" id="registration_form_agreeTerms" formControlName="agreeTerms" name="agreeTerms" required>
+
+            <label class="modalAgreeTerms" for="registration_form_agreeTerms">Veuillez accepter <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">les conditions générales d'utilisation</a></label>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="staticBackdropLabel">Conditions générales d'utilisation</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                          <p>
+                              Acceptation des conditions générales : <br/>
+                              1. En s'inscrivant sur ce site web, l'utilisateur accepte pleinement et sans réserve les présentes conditions générales d'utilisation. <br/>
+                              2. Utilisation du site : L'utilisateur s'engage à utiliser le site web conformément à la loi et aux règles en vigueur et à ne pas porter atteinte aux droits de tiers. <br/>
+                              3. Informations personnelles : L'utilisateur est responsable de l'exactitude et de l'exhaustivité des informations fournies lors de son inscription. Il s'engage à les mettre à jour en cas de modification. <br/>
+                              4. Confidentialité : Les informations personnelles de l'utilisateur seront traitées conformément à la politique de confidentialité du site web. <br/>
+                              5. Protection de l'adresse e-mail : Nous prenons des mesures de sécurité raisonnables pour protéger vos informations personnelles contre tout accès non autorisé, utilisation ou divulgation. Nous ne vendons pas, ne louons pas et ne distribuons pas votre adresse e-mail à des tiers. <br/>
+                              6. Responsabilité : Le site web ne peut être tenu responsable des dommages directs ou indirects causés par l'utilisation du site. <br/>
+                              7. Propriété intellectuelle : Les contenus publiés sur le site web sont protégés par les droits d'auteur. L'utilisateur s'engage à ne pas les reproduire, copier, ou exploiter à des fins commerciales sans autorisation préalable. <br/>
+                              8. Suspension ou résiliation de compte : Le site web se réserve le droit de suspendre ou de résilier le compte de l'utilisateur en cas de non-respect des présentes conditions générales d'utilisation. <br/>
+                              9. Modifications des conditions générales : Le site web se réserve le droit de modifier à tout moment les présentes conditions générales d'utilisation. L'utilisateur sera informé de ces modifications et devra les accepter pour continuer à utiliser le site web. <br/>
+                              10. Cookies : Le site web utilise des cookies pour améliorer l'expérience de l'utilisateur. L'utilisateur peut les désactiver à tout moment. <br/>
+                              11. Liens hypertextes : Le site web peut contenir des liens hypertextes vers des sites web tiers. Le site web n'est pas responsable des contenus de ces sites web. <br/>
+                              12. Limitation de responsabilité : Le site web ne peut être tenu responsable des erreurs, omissions, interruptions, retard, virus informatiques, perte de données, et tout autre dommage résultant de l'utilisation du site web. <br/>
+                              13. Utilisation du contenu : L'utilisateur s'engage à utiliser le contenu du site web à des fins personnelles et non commerciales. <br/>
+                              14. Publicités : Le site web peut contenir des publicités. L'utilisateur s'engage à ne pas utiliser de bloqueur de publicités pour accéder au site web. <br/>
+                              15. Contact : L'utilisateur peut contacter le site web à tout moment pour poser des questions ou signaler des problèmes. <br/>
+                              16. Droit applicable et juridiction compétente : Les présentes conditions générales d'utilisation sont régies par le droit en vigueur et tout litige sera soumis à la juridiction compétente. <br/>
+                          </p>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+        </div>
       </form>
     </div>
 

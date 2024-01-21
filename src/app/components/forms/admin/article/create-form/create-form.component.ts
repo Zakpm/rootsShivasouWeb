@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserDTO } from 'src/app/models/userDTO.model';
 import { CategoryService } from 'src/app/services/category.service';
+import { InscriptionService } from 'src/app/services/inscription.service';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -12,13 +14,15 @@ import { DataService } from 'src/app/services/data.service';
 export class CreateFormComponent implements OnInit {
   createForm!: FormGroup;
   categories: any[] = [];
+  users: UserDTO[] = [];
 
   constructor(
     private fb: FormBuilder,
     private PostService: DataService,
     private router: Router,
     private route: ActivatedRoute,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private inscriptionService: InscriptionService
     ) {
     this.createForm = this.fb.group({
       id: [null],
@@ -61,6 +65,15 @@ export class CreateFormComponent implements OnInit {
       },
       error => {
         console.error('Erreur lors du chargement des catégories', error);
+      }
+    );
+    
+    this.inscriptionService.getAllUsers().subscribe(
+      data => {
+        this.users = data.filter(user => user.roles.includes('ROLE_ADMIN'));
+      },
+      error => {
+        console.error('Erreur lors du chargement des utilisateurs', error);
       }
     );
   }

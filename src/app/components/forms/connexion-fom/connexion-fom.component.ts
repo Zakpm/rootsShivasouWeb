@@ -13,6 +13,7 @@ import { jwtDecode } from 'jwt-decode';
 export class ConnexionFomComponent {
   loginForm! : FormGroup;
   errorMessage: string = '';
+  verificationErrorMessage: string = '';
 
   constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) {}
 
@@ -32,7 +33,15 @@ export class ConnexionFomComponent {
           this.checkRolesAndRedirect(response.jwt);
         },
         error => {
-          this.errorMessage = 'Informations de connexion invalides';
+          if (error === 'Compte non vérifié') {
+            // Erreur de compte non vérifié
+            this.errorMessage = 'Informations de connexion invalides';
+            this.verificationErrorMessage = ''; // Réinitialiser verificationErrorMessage
+          } else {
+            // Erreur d'authentification
+            this.verificationErrorMessage = 'Compte non vérifié. Veuillez vérifier votre compte pour vous connecter';
+            this.errorMessage = ''; // Réinitialiser errorMessage
+          }
           console.error('Erreur de connexion:', error);
         }
       );

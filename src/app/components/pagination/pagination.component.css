@@ -1,0 +1,22 @@
+/* Style de base pour les liens de pagination */
+.pagination .page-link {
+  background-color: #753742; /* Couleur de fond */
+  color: #ffff; /* Couleur du texte */
+}
+
+/* Style pour l'élément de pagination actif */
+.pagination .page-item.active .page-link {
+  background-color: #D8BD8A; /* Couleur de fond pour l'élément actif */
+  color: white; /* Couleur du texte pour l'élément actif */
+}
+
+/* Style pour les éléments de pagination désactivés */
+.pagination .page-item.disabled .page-link {
+  color: #cccccc; /* Couleur du texte pour les éléments désactivés */
+}
+
+/* Style au survol de la souris */
+.pagination .page-link:hover {
+  background-color: #dddddd; /* Couleur de fond au survol */
+}
+

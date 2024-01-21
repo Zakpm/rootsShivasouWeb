@@ -34,6 +34,7 @@ import { UserProfilUpdateComponent } from './components/user/user-profil-update/
 import { UserPasswordUpdateComponent } from './components/user/user-password-update/user-password-update.component';
 import { ContactAdminComponent } from './components/admin/contact-admin/contact-admin.component';
 import { ContactIndexComponent } from './components/admin/contact-admin/contact-index/contact-index.component';
+import { MentionsLegalsComponent } from './components/mentions-legals/mentions-legals.component';
 
 
 
@@ -54,6 +55,7 @@ const routes: Routes = [
       { path: 'inscription', component: InscriptionComponent },
       { path: 'showPost/:id', component: ShowComponent },
       { path: 'reset-password/request', component: ReinitialisationComponent },
+      { path: 'mentions-legales', component: MentionsLegalsComponent },
       // ... autres routes générales
     ]
   },

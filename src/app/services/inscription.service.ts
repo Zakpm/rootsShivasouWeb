@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserDTO } from '../models/userDTO.model';
 import { PostDTO } from '../models/postDTO.model';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +24,16 @@ export class InscriptionService {
   }
 
   addUser(user: UserDTO): Observable<UserDTO> {
-    return this.http.post<UserDTO>(`${this.baseUrl}/user`, user);
+    return this.http.post<UserDTO>(`${this.baseUrl}/user`, user).pipe(
+    catchError(error => {
+      // Vous pouvez personnaliser ce message d'erreur en fonction de vos besoins
+      let errorMessage = 'Une erreur est survenue lors de l\'inscription.';
+      if (error.status === 400) {
+        errorMessage = error.error;
+      }
+      return throwError(errorMessage);
+    })
+    );
   }
 
   verifyAccount(token: string): Observable<string> {

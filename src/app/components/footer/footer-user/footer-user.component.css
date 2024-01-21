@@ -1,7 +1,11 @@
 .footer {
-  height: 60px;
+  height: 40px;
 }
 .footer-color {
   background-color: #753742
+}
+
+a, p {
+  color: #FFFF;
 }
 

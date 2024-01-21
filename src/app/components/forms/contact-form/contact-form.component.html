@@ -8,17 +8,29 @@
             <div class="col-md-6 mb-2">
               <label for="firstName" class="form-label">Nom</label>
               <input type="text" formControlName="first_name" id="firstName" class="form-control">
+              <div *ngIf="contactForm.get('first_name')?.errors?.['required'] && contactForm.get('first_name')?.touched" class="text-danger">
+                Le nom est obligatoire.
+              </div>
             </div>
             <div class=" col-md-6 mb-2">
               <label for="lastName" class="form-label">Prénom</label>
               <input type="text" formControlName="last_name" id="lastName" class="form-control">
+              <div *ngIf="contactForm.get('last_name')?.errors?.['required'] && contactForm.get('last_name')?.touched" class="text-danger">
+                Le prénom est obligatoire.
+              </div>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-6 mb-2">
-              <label for="email" class="form-label">Mail</label>
+              <label for="email" class="form-label">Email</label>
               <input type="text" formControlName="email" id="email" class="form-control">
+              <div *ngIf="contactForm.get('email')?.errors?.['required'] && contactForm.get('email')?.touched" class="text-danger">
+                L'email est obligatoire.
+              </div>
+              <div *ngIf="contactForm.get('email')?.errors?.['email'] && contactForm.get('email')?.touched" class="text-danger">
+                Veuillez entrer une adresse email valide.
+              </div>
             </div>
             <div class="col-md-6 mb-2">
               <label for="phone" class="form-label">Téléphone</label>
@@ -29,14 +41,24 @@
           <div class="mb-2">
             <label for="object" class="form-label">Objet</label>
             <input type="text" formControlName="object" id="object" class="form-control">
+            <div *ngIf="contactForm.get('object')?.errors?.['required'] && contactForm.get('object')?.touched" class="text-danger">
+              L'objet est obligatoire.
+            </div>
           </div>
 
           <div class="mb-2">
             <label for="centent" class="form-label">Message</label>
             <textarea type="text" formControlName="content" id="centent" class="form-control" rows="4"></textarea>
+            <div *ngIf="contactForm.get('content')?.errors?.['required'] && contactForm.get('content')?.touched" class="text-danger">
+              Le message est obligatoire.
+            </div>
           </div>
 
-          <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">Submit</button>
+          <div *ngIf="errorMessage" class="alert alert-danger">
+            {{ errorMessage }}
+          </div>
+
+          <button type="submit" class="btn buttonColor" [disabled]="!contactForm.valid">Envoyer</button>
         </form>
       </div>
     </div>

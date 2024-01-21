@@ -27,9 +27,9 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe(
       (data) => {
+        console.log('Données reçues:', data); // Ajoutez cette ligne
         this.rows = data;
-        this.rowCount = data.length; // Définir le nombre total de lignes
-
+        this.rowCount = data.length;
       },
       (error) => {
         console.error('Erreur lors du chargement des utilisateurs', error);
