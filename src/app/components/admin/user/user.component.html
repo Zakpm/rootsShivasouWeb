@@ -29,6 +29,7 @@
       <!-- Colonne pour le bouton de suppression -->
       <ngx-datatable-column name="Actions" [flexGrow]="1">
         <ng-template let-row="row" ngx-datatable-cell-template>
+          <div *ngIf="!hasSuperAdminRole(row)">
             <a (click)="$event.preventDefault(); confirmAndDelete(row.id)" class="text-danger m-2" href="#" title="Supprimer">
                 <i class="fa-solid fa-trash-can"></i>
             </a>
@@ -36,6 +37,7 @@
             <a class="text-primary m-2" [routerLink]="['/admin/user/update', row.id]" title="Modifier">
                 <i class="fa-solid fa-pen-to-square"></i>
             </a>
+        </div>
       </ng-template>
   </ngx-datatable-column>
 

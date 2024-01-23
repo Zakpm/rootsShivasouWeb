@@ -7,3 +7,11 @@
 a {
   color: #D8BD8A;
 }
+
+#img-navbar
+{
+  height: 65px;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}

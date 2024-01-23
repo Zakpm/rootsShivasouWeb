@@ -28,23 +28,26 @@ export class AuthService {
   login(login: string, password: string): Observable<JwtResponse> {
     return this.http.post<JwtResponse>(`${this.apiUrl}/login`, { login, password }).pipe(
       catchError((error: HttpErrorResponse) => {
-        // Gestion des erreurs HTTP
-        let verified = 'An unknown error occurred!';
+        let errorMsg = 'Une erreur inconnue est survenue !';
         if (error.error instanceof ErrorEvent) {
-          // Erreur côté client
-          verified = `Error: ${error.error.message}`;
+          errorMsg = `Erreur : ${error.error.message}`;
         } else {
-          // Erreur côté serveur
-          verified = `Error Code: ${error.status}\nMessage: ${error.message}`;
-          if (error.status === 403) {
-            // Erreur de vérification du compte
-            this.verificationErrorMessage = verified; // Mettez à jour uniquement en cas d'erreur de vérification
+          switch (error.error.message) {
+            case "Compte non vérifié":
+              errorMsg = 'Compte non vérifié. Veuillez vérifier votre compte pour vous connecter.';
+              break;
+            case "Informations de connexion invalides":
+              errorMsg = 'Informations de connexion invalides';
+              break;
+            default:
+              errorMsg = `Code d'erreur : ${error.status}\nMessage : ${error.message}`;
           }
         }
-        return throwError(verified);
+        return throwError(errorMsg);
       })
     );
   }
+
 
   logout(): void {
     localStorage.removeItem('jwtToken');

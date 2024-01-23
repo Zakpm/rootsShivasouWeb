@@ -83,6 +83,9 @@ export class UserComponent implements OnInit {
     return role; // retourne le rôle tel quel si aucun des cas ci-dessus ne correspond
   }
 
+  hasSuperAdminRole(row: any): boolean {
+    return row.roles.includes('ROLE_SUPER_ADMIN');
+  }
 
 
 }

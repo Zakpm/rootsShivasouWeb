@@ -33,20 +33,19 @@ export class ConnexionFomComponent {
           this.checkRolesAndRedirect(response.jwt);
         },
         error => {
-          if (error === 'Compte non vérifié') {
-            // Erreur de compte non vérifié
-            this.errorMessage = 'Informations de connexion invalides';
-            this.verificationErrorMessage = ''; // Réinitialiser verificationErrorMessage
+          if (error.includes('Compte non vérifié')) {
+            this.verificationErrorMessage = 'Compte non vérifié';
+            this.errorMessage = '';
           } else {
-            // Erreur d'authentification
-            this.verificationErrorMessage = 'Compte non vérifié. Veuillez vérifier votre compte pour vous connecter';
-            this.errorMessage = ''; // Réinitialiser errorMessage
+            this.errorMessage = 'Identifiants invalides';
+            this.verificationErrorMessage = '';
           }
           console.error('Erreur de connexion:', error);
         }
       );
     }
   }
+
 
   private checkRolesAndRedirect(token: string): void {
     const decodedToken = jwtDecode<any>(token);
