@@ -5,13 +5,14 @@ import { UserDTO } from '../models/userDTO.model';
 import { PostDTO } from '../models/postDTO.model';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { environmentCreation } from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class InscriptionService {
 
-  public baseUrl = 'http://localhost:9981'
+  public baseUrl = environmentCreation.apiUrl;
 
   constructor(private http: HttpClient) { }
 

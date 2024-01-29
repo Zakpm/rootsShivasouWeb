@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CategoryDTO } from '../models/categoryDTO.model';
+import { environmentCreation } from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
 
-  public baseUrl = 'http://localhost:9981'; // Remplacez ceci par l'URL de base de votre application Spring Boot
+  public baseUrl = environmentCreation.apiUrl; // Remplacez ceci par l'URL de base de votre application Spring Boot
 
   constructor(private http: HttpClient) { }
 
@@ -36,5 +37,5 @@ export class CategoryService {
     // Modifier l'URL en fonction de votre API et de la prise en charge de la pagination
     return this.http.get<CategoryDTO[]>(`${this.baseUrl}/categories?page=${offset}&limit=${limit}`);
   }
-  
+
 }

@@ -4,6 +4,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { jwtDecode } from 'jwt-decode';
+import { environmentAuth } from '../../environments/environment';
 
 
 interface LoginRequest {
@@ -19,7 +20,7 @@ interface JwtResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:9982/auth'; // Remplacez avec l'URL de votre API
+  private apiUrl = environmentAuth.apiUrl; // Remplacez avec l'URL de votre API
 
   verificationErrorMessage: string = ''; // Propriété pour la vérification du compte
 
