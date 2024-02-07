@@ -6,12 +6,18 @@ import { Observable } from 'rxjs';
 export class IntercepteurInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log('Intercepteur appelé');
-    const authToken = localStorage.getItem('jwtToken');
-    console.log('Token:', authToken);
+    // Essayer de récupérer le jwtToken
+    let authToken = localStorage.getItem('jwtToken');
+    // Si jwtToken n'est pas trouvé, essayer de récupérer le resetToken
+    if (!authToken) {
+      authToken = localStorage.getItem('resetToken');
+      console.log('Utilisation de resetToken:', authToken);
+    } else {
+      console.log('Utilisation de jwtToken:', authToken);
+    }
 
     if (authToken) {
       // Cloner la requête pour ajouter l'en-tête Authorization
-      // sans toucher à l'en-tête Content-Type existant
       const authReq = req.clone({
         setHeaders: { Authorization: `Bearer ${authToken}` }
       });
@@ -22,3 +28,4 @@ export class IntercepteurInterceptor implements HttpInterceptor {
     return next.handle(req);
   }
 }
+
