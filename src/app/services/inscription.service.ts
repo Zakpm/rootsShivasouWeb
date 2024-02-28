@@ -27,7 +27,7 @@ export class InscriptionService {
   addUser(user: UserDTO): Observable<UserDTO> {
     return this.http.post<UserDTO>(`${this.baseUrl}/user`, user).pipe(
     catchError(error => {
-      // Vous pouvez personnaliser ce message d'erreur en fonction de vos besoins
+
       let errorMessage = 'Une erreur est survenue lors de l\'inscription.';
       if (error.status === 400) {
         errorMessage = error.error;
@@ -58,7 +58,7 @@ export class InscriptionService {
   }
 
   getUsersPage(offset: number, limit: number): Observable<UserDTO[]> {
-    // Modifier l'URL en fonction de votre API et de la prise en charge de la pagination
+    // Modifier l'URL en fonction de API et de la prise en charge de la pagination
     return this.http.get<UserDTO[]>(`${this.baseUrl}/categories?page=${offset}&limit=${limit}`);
   }
 

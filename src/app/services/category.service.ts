@@ -34,7 +34,7 @@ export class CategoryService {
   }
 
   getCategoriesPage(offset: number, limit: number): Observable<CategoryDTO[]> {
-    // Modifier l'URL en fonction de votre API et de la prise en charge de la pagination
+    // Modifier l'URL en fonction de API et de la prise en charge de la pagination
     return this.http.get<CategoryDTO[]>(`${this.baseUrl}/categories?page=${offset}&limit=${limit}`);
   }
 

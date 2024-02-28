@@ -20,7 +20,7 @@ interface JwtResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = environmentAuth.apiUrl; // Remplacez avec l'URL de votre API
+  private apiUrl = environmentAuth.apiUrl; // Remplace avec l'URL de API
 
   verificationErrorMessage: string = ''; // Propriété pour la vérification du compte
 

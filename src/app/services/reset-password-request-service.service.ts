@@ -7,7 +7,7 @@ import { environmentResetPassword } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ResetPasswordRequestServiceService {
-  private apiUrl = environmentResetPassword.apiUrl; // Remplacez par l'URL de votre API
+  private apiUrl = environmentResetPassword.apiUrl; // Remplace par l'URL de API
 
   constructor(private http: HttpClient) { }
 

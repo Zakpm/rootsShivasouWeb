@@ -30,7 +30,7 @@ export class ContactService {
   }
 
   getContactsPage(offset: number, limit: number): Observable<ContactDTO[]> {
-    // Modifier l'URL en fonction de votre API et de la prise en charge de la pagination
+    // Modifier l'URL en fonction de API et de la prise en charge de la pagination
     return this.http.get<ContactDTO[]>(`${this.baseUrl}/contacts?page=${offset}&limit=${limit}`);
   }
 
