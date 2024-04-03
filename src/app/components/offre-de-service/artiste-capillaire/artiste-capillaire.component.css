@@ -8,3 +8,34 @@ img {
   width: 100%; /* Assurez-vous que l'image s'étend sur toute la largeur du conteneur */
   height: auto; /* La hauteur s'ajuste pour maintenir l'aspect de l'image */
 }
+
+h1, h2 {
+  font-family: "League Spartan";
+  font-weight: 700;
+  color: #918A00;;
+}
+
+p {
+  font-family: "Lato";
+  font-size: 15px;
+}
+
+#img-homepage{
+  margin-top: -50px;
+  transform: scale(1.2); /* Augmente la taille de l'image de 20% */
+
+}
+
+/* taille moyenne d'écran */
+@media (min-width: 1025px) {
+  video {
+    width: 500px;
+    height: 700px;
+  }
+}
+
+@media (min-width: 820px) {
+  .wave {
+    margin-top: -100px;
+  }
+}

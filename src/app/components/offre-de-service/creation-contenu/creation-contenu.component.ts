@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-creation-contenu',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreationContenuComponent implements OnInit {
 
-  constructor () {}
+  constructor (private router: Router) {}
 
   ngOnInit(): void {
-      
+
   }
+
+  goToContentCreator(fragment: string) {
+    const url = `/contentCreator/#${fragment}`;
+            window.location.href = url;
+  }
+
 }

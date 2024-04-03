@@ -2,11 +2,35 @@ a {
   color: #ffff;
 }
 
-.card {
-  max-width: 18rem;
-  background-color: #753742;
+h1, h2 {
+  font-family: "League Spartan";
+  font-weight: 700;
+  color: #918A00;;
 }
 
-.card-header {
-  color: #ffff;
+p {
+  font-family: "Lato";
+  font-size: 15px;
+}
+
+#img-homepage {
+  max-width: 50%;
+  height: auto;
+
+}
+
+.mirrored {
+  transform: scaleX(-1);
+}
+
+@media (min-width: 1025px) {
+#text-artist {
+  padding-top: 100px;
+}
+}
+
+@media (min-width: 820px) {
+  .wave {
+    margin-top: -100px;
+  }
 }

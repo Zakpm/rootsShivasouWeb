@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-color">
+<nav class="navbar navbar-expand-lg">
   <div class="container-fluid ">
     <a title="logo-rootsshivasou" href="/">
       <img id="img-navbar" src="assets/images/logo-navbar.png" alt="" class="mx-3">
@@ -7,11 +7,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-      <div class="navbar-nav mx-3">
+      <div class="navbar-nav mb-3">
         <a class="nav-link" routerLink="/offres" routerLinkActive="active">Offre de services</a>
-        <a class="nav-link" routerLink="/about" routerLinkActive="active">A propos</a>
         <a class="nav-link" routerLink="/posts" routerLinkActive="active" >Articles</a>
-        <a class="nav-link" routerLink="/contact" routerLinkActive="active" >Contact</a>
         <a *ngIf="isAdmin" class="nav-link" routerLink="/admin/index" routerLinkActive="active">Espace Admin</a>
         <a *ngIf="isUser" class="nav-link" routerLink="/user/index" routerLinkActive="active">Espace User</a>
         <a *ngIf="isAdmin || isUser" class="nav-link" (click)="onLogout()" routerLink="/" >Deconnexion</a>

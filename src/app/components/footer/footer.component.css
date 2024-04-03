@@ -1,8 +1,9 @@
 .footer {
-  height: 40px;
+  min-height: 300px; /* Taille minimale du footer */
+  padding: 10px 20px 0px 20px; /* Espace intérieur du footer */
 }
 .footer-color {
-  background-color: #AA5042;
+  background-color: #390001;
 }
 
 a, p {
@@ -10,5 +11,33 @@ a, p {
 }
 
 .instagram-icon {
-  font-size: 20px;
+  font-size: 30px;
 }
+
+.title-footer {
+  font-weight: bold;
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+
+}
+
+.copyright {
+  padding-left: 20px;
+  font-size: 13px;
+}
+
+@media (max-width: 767px) {
+  .order-dernier {
+    order: -1; /* Change l'ordre de la colonne en dernier pour les écrans de smartphone */
+  }
+
+}
+
+@media (min-width: 768px) {
+  .footer {
+    height: auto; /* Taille automatique pour les écrans de taille moyenne et plus grands */
+  }
+
+}
+
+

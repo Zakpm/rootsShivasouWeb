@@ -1,9 +1,9 @@
-<h1 id="title" class="text-center my-5 display-5" >Artiste capillaire</h1>
+<h1 id="title" class="text-center col-md-6 my-3 my-5" >Artiste capillaire</h1>
 
-<div class="container my-5">
+<div class="container">
   <div class="row">
     <!-- Colonne pour le texte -->
-    <div class="col-md-6 my-5">
+    <div class="col-md-6">
       <h2>Présentation</h2>
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque, amet! Voluptas,
         totam! Iste est velit minima itaque vero animi quas neque. Accusantium a corrupti sapiente voluptates,
@@ -13,53 +13,52 @@
       </p>
       <p>Comment prendre rendez-vous ?</p>
       <div>
-        <a href="#">
-          <img src="assets/images/Diversity_of_plants_(Streptophyta)_version_2.png" alt="image de artiste capillaire">
-        </a>
+        <div class="col-md-6 col-sm-12">
+          <a routerLink="/artist"><img id="img-homepage" src="assets/images/Reservez-maintenant.png" alt="" class="mx-auto d-block"></a>
+        </div>
       </div>
     </div>
-
     <!-- Colonne pour l'image -->
-    <div class="col-md-6 text-center my-5">
-      <img src="assets/images/Diversity_of_plants_(Streptophyta)_version_2.png" alt="image de artiste capillaire">
-    </div>
-
-    <hr>
-  </div>
-  <div class="row mt-5">
-    <h2>Portfolio</h2>
-    <div id="carouselExample" class="carousel slide">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="assets/images/tree-g4f26e6d76_1280.jpg" class="card-img-top img-fluid d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/images/logo.png" class="card-img-top img-fluid d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/images/Diversity_of_plants_(Streptophyta)_version_2.png" class="card-img-top img-fluid d-block w-100" alt="...">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    <div class="mt-5 d-flex justify-content-between">
-      <div >
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus aperiam voluptates cupiditate corrupti dolore quaerat consectetur architecto, explicabo quam, officia laudantium distinctio omnis non facere magni corporis ut quidem impedit?
-        Error nihil excepturi dignissimos. Repellat architecto, laudantium eaque quas unde porro iste quos, nostrum dolorum facere harum, alias voluptate velit aperiam officia excepturi labore illum voluptates quidem enim praesentium reiciendis.
-        </p>
-      </div>
-      <div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus aperiam voluptates cupiditate corrupti dolore quaerat consectetur architecto, explicabo quam, officia laudantium distinctio omnis non facere magni corporis ut quidem impedit?
-          Error nihil excepturi dignissimos. Repellat architecto, laudantium eaque quas unde porro iste quos, nostrum dolorum facere harum, alias voluptate velit aperiam officia excepturi labore illum voluptates quidem enim praesentium reiciendis.
-        </p>
-      </div>
+    <div class="col-md-6 col-sm-12 mt-5 text-center">
+      <video width="100%" height="auto" controls autoplay loop>
+        <source src="assets/videos/prendre-rdv.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la lecture de vidéos.
+      </video>
     </div>
   </div>
 </div>
+
+<svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+  <path d="M0 80
+  Q125 50 250 80
+  Q375 110 500 80
+  T625 80
+  Q750 50 875 80
+  Q1000 110 1125 80
+  V150
+  Q1000 120 875 150
+  Q750 180 625 150
+  T500 150
+  Q375 120 250 150
+  Q125 120 0 150
+           Z" fill="#B80407" />
+</svg>
+
+
+<div class="container">
+  <div class="row mt-5">
+    <h2>Portfolio</h2>
+    <ngb-carousel [interval]="1000">
+      <ng-template ngbSlide>
+        <img src="assets/images/tree-g4f26e6d76_1280.jpg" class="card-img-top img-fluid d-block w-100" alt="...">
+      </ng-template>
+      <ng-template ngbSlide>
+        <img src="assets/images/logo.png" class="card-img-top img-fluid d-block w-100" alt="...">
+      </ng-template>
+      <ng-template ngbSlide>
+        <img src="assets/images/Diversity_of_plants_(Streptophyta)_version_2.png" class="card-img-top img-fluid d-block w-100" alt="...">
+      </ng-template>
+    </ngb-carousel>
+  </div>
+</div>
+

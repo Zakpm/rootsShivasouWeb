@@ -64,6 +64,11 @@ import { MentionsLegalsComponent } from './components/mentions-legals/mentions-l
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from '@angular/material/input';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap'; // Ajoutez cette ligne
+
+
+
 
 
 @NgModule({
@@ -132,6 +137,8 @@ import { MatInputModule } from '@angular/material/input';
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
+    NgbModule,
+    NgbCarouselModule
   ],
   providers: [
     AuthResetGuard,

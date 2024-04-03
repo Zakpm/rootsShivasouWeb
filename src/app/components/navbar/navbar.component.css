@@ -1,17 +1,20 @@
-.navbar-color {
-  background-color: #AA5042;
-}
+
 .nav {
   height: 20px;
 }
 a {
   color: #D8BD8A;
+  font-family: "League Spartan";
+  font-size: 20px;
 }
 
 #img-navbar
 {
-  height: 65px;
+  height: 100px;
   width: auto;
-  margin: 0;
-  padding: 0;
+  padding-left: 100px;
+}
+
+.navbar-nav {
+  padding-right: 100px;
 }

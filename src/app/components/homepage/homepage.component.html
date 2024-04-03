@@ -1,21 +1,56 @@
-<h1 id="title" class="text-center my-5 display-5" >Roots Shivasou</h1>
+<h1 id="title" class="text-center mt-5 mb-0 display-5">
+  <span class="block">Roots</span><span class="block">Shivasou</span>
+</h1>
 
-<div class="container my-5">
+<div class="row">
+  <img class="img-ban" src="assets/images/accueil-2.png" alt="">
+  <svg class="wave-ban" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+    <path d="M0 70
+             Q125 100 250 70
+             Q375 40 500 70
+             T625 70
+             Q750 100 875 70
+             Q1000 40 1125 70
+             V0
+             H0
+             Z" fill="#C37273" />
+  </svg>
+</div>
+
+<div class="container container-presentation">
   <div class="row">
-    <div class="col-md-6 text-center">
+    <div class="col-md-6 col-sm-12 text-center mb-5">
+      <h2 class="mb-3">Jessy joyeux</h2>
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae minima a aperiam reprehenderit temporibus illo officia facilis magni, quo pariatur fugiat doloribus. Dolorem ad veritatis consequatur animi nihil enim ullam?
       Possimus, eveniet nostrum consequuntur facere, ipsa obcaecati architecto iusto dicta dolorem sequi non ullam natus labore nam odio sint ratione dignissimos! Eveniet repudiandae, at accusantium obcaecati similique libero numquam quis!
-      Voluptates repellendus sunt nulla id natus earum saepe aperiam, error excepturi exercitationem eius sed aliquam veritatis doloribus eveniet dolor deleniti laudantium quia qui recusandae pariatur consequatur. Odio similique recusandae tenetur!
-      Dolor quis optio quos beatae, eos rem, repudiandae at hic dicta consectetur officiis illum ratione saepe unde corrupti a sit quisquam deleniti animi ut non numquam! Accusantium, in. Nemo, odit!</p>
+      Voluptates repellendus sunt</p>
     </div>
-    <div class="col-md-6">
-      <img id="img-homepage" src="assets/images/logo.png" alt="" class="mx-auto d-block">
+    <div class="col-md-6 col-sm-12">
+      <img id="img-homepage" src="assets/images/photo-pro-1.png" alt="" class="mx-auto d-block">
     </div>
   </div>
+</div>
 
-  <hr class="mt-5 col-lg-10 mx-auto">
-  <p class="text-center">Mes derniers articles</p>
+<svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+  <path d="M0 80
+  Q125 50 250 80
+  Q375 110 500 80
+  T625 80
+  Q750 50 875 80
+  Q1000 110 1125 80
+  V150
+  Q1000 120 875 150
+  Q750 180 625 150
+  T500 150
+  Q375 120 250 150
+  Q125 120 0 150
+           Z" fill="#F55D16" />
+</svg>
 
+
+
+  <div class="container mb-5">
+    <h2 class="text-center mb-4">Mes derniers articles</h2>
   <div class="row">
     <div class="col-md-12">
       <div class="container text-center my-2">
@@ -25,9 +60,9 @@
               <div class="card card-config">
                 <img *ngIf="post.image" [src]="imageUrlBase + post.image[0]" alt="{{ post.title }}" class="card-img-top img-fluid">
                 <div class="card-body">
-                  <h2 class="card-title">{{ post.title }}</h2>
+                  <h3 class="card-title">{{ post.title }}</h3>
                   <p class="card-text" [innerHTML]="post.content | truncate:150"></p>
-                  <a [routerLink]="['/showPost', post.id]" class="btn btn-dark">Lire</a>
+                  <a [routerLink]="['/showPost', post.id]" class="btn">Lire</a>
                 </div>
               </div>
             </div>

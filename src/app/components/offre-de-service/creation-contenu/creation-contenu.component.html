@@ -1,8 +1,7 @@
-<h1 id="title" class="text-center my-5 display-5" >Création de contenus</h1>
+<h1 id="title" class="text-center col-md-6 my-3 my-5" >Digital Learning Expert</h1>
 
 <div class="container my-5">
   <div class="row">
-
     <div class="container">
       <div class="row">
         <div class="col-md-6 pe-md-3">
@@ -21,62 +20,108 @@
       <div class="row align-items-center d-flex justify-content-center">
 
           <div class="d-grid gap-2 col-md-3 mx-auto mt-2">
-            <a class="btn btn-dark w-100" routerLink="#digital-learning">Qu'est-ce que le digital learning ?</a>
+            <a class="btn w-100" (click)="goToContentCreator('digital-learning')">Qu'est-ce que le digital learning ?</a>
           </div>
           <div class="d-grid gap-2 col-md-3 mx-auto mt-2">
-            <a class="btn btn-dark w-100" href="#projets">Exemples de projets</a>
+            <a class="btn w-100" (click)="goToContentCreator('projets')">Exemples de projets</a>
           </div>
           <div class="d-grid gap-2 col-md-3 mx-auto mt-2">
-            <a type="button" class="btn btn-dark w-100" href="#formation">Plateforme de formation</a>
+            <a class="btn w-100" (click)="goToContentCreator('formation')">Plateforme de formation</a>
           </div>
           <div class="d-grid gap-2 col-md-3 mx-auto mt-2">
-            <button type="button" class="btn btn-dark w100" routerLink="/contact">Prendre rendez-vous</button>
+            <button type="button" class="btn w100" routerLink="/contact">Prendre rendez-vous</button>
           </div>
 
       </div>
     </div>
 
   </div>
+</div>
 
-  <div class="mt-5">
-    <div class="row justify-content-center">
-      <div class="col-12 text-center">
-        <h2>Digital learning</h2>
-      </div>
-      <div class="col-12 col-lg-8 my-5"> <!-- Spécification de la taille pour les écrans larges -->
-        <div id="digital-learning" class="iframe-container">
-          <iframe src="https://www.youtube.com/embed/SqHrqKedtco?si=-_uI7s-p5Fax-Sbx" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
+<div class="container" >
+  <div class="row">
+    <!-- Colonne pour le texte -->
+    <div class="col-md-6">
+      <h2 id="digital-learning">Digital Learning</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque, amet! Voluptas,
+        totam! Iste est velit minima itaque vero animi quas neque. Accusantium a corrupti sapiente voluptates,
+        eos quis amet officiis. Ipsum repellendus recusandae odit cum quas veritatis eveniet porro, magnam molestiae
+        sed incidunt minus. Voluptatum totam aliquid dolore deleniti quibusdam natus dolor illo corporis ullam,
+        tenetur sequi voluptatibus accusantium officiis?
+      </p>
+    </div>
+    <!-- Colonne pour l'image -->
+    <div class="col-md-6 col-sm-12 mt-5">
+      <iframe title="pdf" src="assets/pdf/digital-learning.pdf" width="100%" height="515px" readonly></iframe>
     </div>
   </div>
+</div>
 
+<svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+  <path d="M0 80
+  Q125 50 250 80
+  Q375 110 500 80
+  T625 80
+  Q750 50 875 80
+  Q1000 110 1125 80
+  V150
+  Q1000 120 875 150
+  Q750 180 625 150
+  T500 150
+  Q375 120 250 150
+  Q125 120 0 150
+           Z" fill="#FFC300" />
+</svg>
 
-  <hr/>
-  <div class="mt-5 d-flex justify-content-center">
+  <div class=" container mt-5" >
     <div class="row">
-      <div class="text-center">
+      <div class="text-center col-md-6">
         <h2 id="projets">Projets</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius ipsum ad a saepe perferendis dicta nihil quaerat, suscipit ipsa excepturi expedita sapiente voluptatibus, consequatur dignissimos ut et delectus tempora. Modi.
+        Illum vel, a, laudantium tempore natus eos recusandae rem nulla amet totam cum et doloribus necessitatibus temporibus officiis repellat incidunt repudiandae? Voluptatem culpa dolor temporibus modi nostrum sunt distinctio quo?</p>
+        <img class="img-qrcode" src="assets/images/qrcode-liktree.png" alt="">
       </div>
-      <div class="my-5 d-flex justify-content-center">
-        <a href="http://google.com" title="image projet"><img class="img-projets img-fluid" src="assets/images/tree-g4f26e6d76_1280.jpg" alt="image projets"></a>
+      <div class="my-5 col-md-6 text-center">
+        <a href="http://google.com" title="image projet"><img class="img-projets img-fluid" src="assets/images/S11-client.png" alt="image projets"></a>
       </div>
     </div>
   </div>
-  <hr/>
 
-  <div class="mt-5 d-flex justify-content-center">
+  <svg class="wave2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+    <path d="M0 80
+    Q125 50 250 80
+    Q375 110 500 80
+    T625 80
+    Q750 50 875 80
+    Q1000 110 1125 80
+    V150
+    Q1000 120 875 150
+    Q750 180 625 150
+    T500 150
+    Q375 120 250 150
+    Q125 120 0 150
+             Z" fill="#F55D16" />
+  </svg>
+
+  <div class="container mt-5  justify-content-center">
     <div class="row">
       <div class="text-center">
         <h2 id="formation">Plateforme de formation</h2>
-        <div class="mt-5 col-md-6 offset-md-3">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur vitae non adipisci est eaque sunt corporis, veritatis facilis rem voluptate ad nemo magni, cupiditate suscipit distinctio eum aut, rerum modi?
-          Non nostrum quam eum et voluptatum praesentium impedit totam dolorum voluptatem. Nisi, incidunt. Provident enim suscipit incidunt accusantium quis recusandae, tempore quas dolor facilis esse, fugit temporibus voluptate totam soluta.
+        <div class="col-md-6 offset-md-3">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, facilis?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, facilis?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, facilis?
           </p>
+          <a routerLink="/contact">
+          <video width="100%" height="auto" controls autoplay loop>
+            <source src="assets/videos/prochainement-dispo.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture de vidéos.
+          </video>
+          </a>
         </div>
       </div>
     </div>
   </div>
 
 
-</div>
+

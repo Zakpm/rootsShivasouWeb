@@ -1,0 +1,16 @@
+#img-homepage {
+  max-width: 33%;
+  height: auto;
+
+}
+
+h1, h2 {
+  font-family: "League Spartan";
+  font-weight: 700;
+  color: #918A00;;
+}
+
+p {
+  font-family: "Lato";
+  font-size: 15px;
+}

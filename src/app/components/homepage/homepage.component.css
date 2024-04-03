@@ -1,13 +1,21 @@
-.img-homepage {
-  max-width: 100%;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#img-homepage {
+  max-width: 50%;
   height: auto;
+  margin: 0px;
+  padding: 0px;
+
 }
 
 .card-config {
   margin: 10px;
   display: flex;
   flex-direction: column;
-  height: 400px; /* Hauteur fixe pour la carte */
+  height: 350px; /* Hauteur fixe pour la carte */
   justify-content: space-between; /* Organise le contenu de la carte */
 }
 
@@ -21,6 +29,8 @@
 .card-body {
   margin-top: auto; /* Pousse le card-body vers le bas */
   flex-grow: 1;
+  background: rgb(184,4,7);
+  background: linear-gradient(0deg, rgba(184,4,7,1), rgba(245,93,22,1) 35%, rgba(255,195,0,0.7917542016806722) 100%);
 }
 
 .card-title, .card-text {
@@ -40,6 +50,75 @@
 }
 
 .btn {
-  background-color: #753742;
+  background-color: #B80407;
+  width: 100px;
+  color: white;
 }
 
+#title {
+  color: #390001;
+}
+
+
+h1 {
+  font-family: "League Spartan";
+  font-weight: 700;
+}
+
+h2 {
+  font-family: "Lato";
+  font-weight: 400;
+  color: #918A00;
+}
+
+.img-ban {
+  width: 100vw; /* Largeur de la fenêtre visible */
+  overflow-x: hidden; /* Empêche le défilement horizontal */
+  height: auto;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-presentation {
+  margin-top: -50px; /* Ajustez cette valeur selon vos besoins */
+  margin-bottom: -100px;
+}
+
+p, a {
+  font-family: "Lato";
+}
+
+p {
+  font-size: 20px;
+}
+
+.wave {
+  position: relative; /* Change la position en relative */
+  top: -150px; /* Déplace le SVG vers le haut */
+}
+.wave-ban {
+  margin: 0;
+
+}
+
+/* titre de la page*/
+.block {
+  display: block;
+  margin: 0;
+}
+
+/* taille moyenne uniquement*/
+@media (min-width: 768px) and (max-width: 1024.98px) {
+  .container-presentation {
+    margin-bottom: 100px; /* Ajustez cette valeur selon vos besoins */
+  }
+}
+
+@media (max-width: 767px) {
+  .container-presentation {
+    margin-bottom: 10px;
+  }
+}
