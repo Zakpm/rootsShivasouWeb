@@ -12,9 +12,24 @@ a {
 {
   height: 100px;
   width: auto;
-  padding-left: 100px;
 }
 
 .navbar-nav {
   padding-right: 100px;
 }
+
+hr {
+  color: #D8BD8A;
+}
+
+@media (min-width: 1024px) {
+  #img-navbar {
+    padding-left: 100px;
+  }
+  .line {
+    margin-top: -30px;
+    padding-left: 300px;
+    padding-right: 300px;
+  }
+}
+

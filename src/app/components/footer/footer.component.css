@@ -21,10 +21,11 @@ a, p {
 
 }
 
-.copyright {
-  padding-left: 20px;
+.made {
   font-size: 13px;
+  display: inline-block;
 }
+
 
 @media (max-width: 767px) {
   .order-dernier {

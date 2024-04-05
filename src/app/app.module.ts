@@ -65,7 +65,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap'; // Ajoutez cette ligne
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { CguComponent } from './components/cgu/cgu.component';
+import { CgaComponent } from './components/cga/cga.component'; // Ajoutez cette ligne
 
 
 
@@ -125,6 +128,9 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap'; // Ajoutez cette
     ContactAdminComponent,
     ContactIndexComponent,
     MentionsLegalsComponent,
+    BreadcrumbComponent,
+    CguComponent,
+    CgaComponent,
   ],
   imports: [
     BrowserModule,

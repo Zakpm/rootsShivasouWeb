@@ -35,6 +35,8 @@ import { UserPasswordUpdateComponent } from './components/user/user-password-upd
 import { ContactAdminComponent } from './components/admin/contact-admin/contact-admin.component';
 import { ContactIndexComponent } from './components/admin/contact-admin/contact-index/contact-index.component';
 import { MentionsLegalsComponent } from './components/mentions-legals/mentions-legals.component';
+import { CguComponent } from './components/cgu/cgu.component';
+import { CgaComponent } from './components/cga/cga.component';
 
 
 
@@ -43,20 +45,22 @@ const routes: Routes = [
     path: '',
     component: MainLayoutComponent, // Layout principal avec navbar et footer
     children: [
-      { path: 'posts', component: PostComponent },
-      { path: '', component: HomepageComponent },
-      { path: 'offres', component: OffreDeServiceComponent },
-      { path: 'about', component: AProposComponent },
-      { path: 'contact', component: ContactComponent },
-      { path: 'connexion', component: ConnexionComponent },
+      { path: 'posts', component: PostComponent, data: {breadcrumb: 'Articles'} },
+      { path: '', component: HomepageComponent, data: {breadcrumb: 'Accueil'} },
+      { path: 'offres', component: OffreDeServiceComponent, data: {breadcrumb: 'Offres'} },
+      { path: 'about', component: AProposComponent, data: {breadcrumb: 'À propos'} },
+      { path: 'contact', component: ContactComponent, data: {breadcrumb: 'Contact'} },
+      { path: 'connexion', component: ConnexionComponent, data: {breadcrumb: 'Connexion'} },
       { path: 'changeManagement', component: ChangeManagmentComponent },
-      { path: 'contentCreator', component: CreationContenuComponent },
-      { path: 'artist', component: ArtisteCapillaireComponent },
-      { path: 'inscription', component: InscriptionComponent },
-      { path: 'showPost/:id', component: ShowComponent },
-      { path: 'reset-password/request', component: ReinitialisationComponent },
-      { path: 'mentions-legales', component: MentionsLegalsComponent },
-      // ... autres routes générales
+      { path: 'contentCreator', component: CreationContenuComponent, data: {breadcrumb: 'Digital Expert'} },
+      { path: 'artist', component: ArtisteCapillaireComponent, data: {breadcrumb: 'Artiste Capillaire'} },
+      { path: 'inscription', component: InscriptionComponent, data: {breadcrumb: 'Connexion>Inscription'} },
+      { path: 'showPost/:id', component: ShowComponent, data: {breadcrumb: 'Article'} },
+      { path: 'reset-password/request', component: ReinitialisationComponent, data: {breadcrumb: 'Demande de réinitialisation du mot de passe'} },
+      { path: 'mentions-legales', component: MentionsLegalsComponent, data: {breadcrumb: 'Mentions légales'} },
+      { path: 'conditions-generales-utilisation', component: CguComponent, data: {breadcrumb: 'Conditions générales utilisation'} },
+      { path: 'conditions-generales-application', component: CgaComponent, data: {breadcrumb: 'Conditions générales application'} },
+
     ]
   },
   {

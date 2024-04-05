@@ -1,9 +1,27 @@
 .formBgColor{
-  background-color: rgba(216, 189, 138, 0.2);
+  background-color: rgba(245, 93, 22, 0.2);
 }
 
 .buttonColor {
-  background-color: #753742; /* Couleur de fond verte */
+  background-color: #B80407; /* Couleur de fond verte */
   color: white; /* Texte blanc pour un meilleur contraste */
   border: none; /* Optionnel: supprime la bordure du bouton */
+}
+
+#img-homepage {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .formBgColor {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 1025px) {
+  #img-homepage {
+    max-width: 100%;
+  }
+
 }

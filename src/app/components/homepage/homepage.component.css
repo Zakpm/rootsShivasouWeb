@@ -27,10 +27,10 @@
 }
 
 .card-body {
-  margin-top: auto; /* Pousse le card-body vers le bas */
+  margin-top: auto;
   flex-grow: 1;
-  background: rgb(184,4,7);
-  background: linear-gradient(0deg, rgba(184,4,7,1), rgba(245,93,22,1) 35%, rgba(255,195,0,0.7917542016806722) 100%);
+  background: rgb(184, 4, 7);
+  background: linear-gradient(0deg, rgba(184, 4, 7, 0.8), rgba(245, 93, 22, 0.8) 35%, rgba(255, 195, 0, 0.7) 100%);
 }
 
 .card-title, .card-text {
@@ -101,6 +101,7 @@ p {
 }
 .wave-ban {
   margin: 0;
+  margin-top: -10px;
 
 }
 

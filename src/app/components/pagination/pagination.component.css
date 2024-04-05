@@ -1,6 +1,6 @@
 /* Style de base pour les liens de pagination */
 .pagination .page-link {
-  background-color: #753742; /* Couleur de fond */
+  background-color: #B80407; /* Couleur de fond */
   color: #ffff; /* Couleur du texte */
 }
 
@@ -8,6 +8,7 @@
 .pagination .page-item.active .page-link {
   background-color: #D8BD8A; /* Couleur de fond pour l'élément actif */
   color: white; /* Couleur du texte pour l'élément actif */
+  border-color: white;
 }
 
 /* Style pour les éléments de pagination désactivés */
