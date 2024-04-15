@@ -1,0 +1,37 @@
+<app-navbar-admin></app-navbar-admin>
+<h1 id="title" class="text-center my-3 display-5" >Portfolio</h1>
+<div class="d-flex justify-content-end align-items-center m-3">
+  <a class="btn btn-primary" [routerLink]="['/admin/portfolio/update']"><i class="fa-solid fa-plus"></i> Ajouter une photo</a>
+</div>
+<div class="tab-container col-md-12 mb-5">
+  <ngx-datatable class="material container striped" [rows]="portfolios" [columnMode]="'flex'" [headerHeight]="50" [footerHeight]="50" rowHeight="auto">
+
+    <ngx-datatable-column name="Image" [flexGrow]="2">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <ng-container *ngIf="row?.image && row.image.length > 0">
+          <div *ngFor="let image of row.image" class="row mb-2">
+            <div class="col">
+              <img [src]="imageUrlBase + image" alt="{{ row.title }}" class="img-fluid table-img">
+            </div>
+          </div>
+        </ng-container>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Supprimer" [flexGrow]="1">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <div *ngIf="row?.image && row.image.length > 0">
+          <div *ngFor="let image of row.image" class="row mb-3">
+            <div class="col">
+              <a (click)="onDeleteImage($event, row.id, image)" class="text-danger m-2" href="#" title="Supprimer">
+                <i class="fa-solid fa-trash-can"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ngx-datatable-column>
+
+      <!-- Ajoutez plus de colonnes si nécessaire -->
+  </ngx-datatable>
+</div>

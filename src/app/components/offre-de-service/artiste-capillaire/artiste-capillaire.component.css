@@ -26,6 +26,11 @@ p {
 
 }
 
+.carousel-container{
+  height: 600px; /* Ajustez la hauteur selon vos besoins */
+  overflow: hidden; /* Cachez tout contenu supplémentaire en dehors de la hauteur fixe */
+}
+
 /* taille moyenne d'écran */
 @media (min-width: 1025px) {
   video {

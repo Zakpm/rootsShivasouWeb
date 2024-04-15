@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -6,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  constructor () {}
+  constructor (private router: Router) {}
 
   ngOnInit(): void {
 
+  }
+
+  goToContentCreator(fragment: string) {
+    const url = `/artist/#${fragment}`;
+            window.location.href = url;
   }
 }

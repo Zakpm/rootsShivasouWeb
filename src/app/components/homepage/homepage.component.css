@@ -107,8 +107,9 @@ p {
 
 /* titre de la page*/
 .block {
-  display: block;
-  margin: 0;
+ display: block;
+ margin-top: -30px;
+
 }
 
 /* taille moyenne uniquement*/
@@ -116,10 +117,25 @@ p {
   .container-presentation {
     margin-bottom: 100px; /* Ajustez cette valeur selon vos besoins */
   }
+  #container-article {
+    margin-top: -100px;
+  }
+  .block {
+    margin-top: -20px;
+  }
 }
 
+/* smartphone*/
 @media (max-width: 767px) {
   .container-presentation {
     margin-bottom: 10px;
+  }
+
+  .block {
+    margin-top: -20px;
+  }
+
+  #container-article {
+    margin-top: -100px;
   }
 }

@@ -37,6 +37,8 @@ import { ContactIndexComponent } from './components/admin/contact-admin/contact-
 import { MentionsLegalsComponent } from './components/mentions-legals/mentions-legals.component';
 import { CguComponent } from './components/cgu/cgu.component';
 import { CgaComponent } from './components/cga/cga.component';
+import { PortfolioAdminComponent } from './components/admin/portfolio-admin/portfolio-admin.component';
+import { PortfolioAdminUpdateComponent } from './components/admin/portfolio-admin/portfolio-admin-update/portfolio-admin-update.component';
 
 
 
@@ -79,6 +81,8 @@ const routes: Routes = [
       { path: 'user/update/:id', component: UpdateUserComponent },
       { path: 'contact', component: ContactAdminComponent },
       { path: 'contact/index/:id', component: ContactIndexComponent },
+      { path: 'portfolio', component: PortfolioAdminComponent },
+      { path: 'portfolio/update', component: PortfolioAdminUpdateComponent },
       // ... autres routes d'administration
     ]
   },

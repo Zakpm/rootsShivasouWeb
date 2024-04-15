@@ -68,7 +68,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { CguComponent } from './components/cgu/cgu.component';
-import { CgaComponent } from './components/cga/cga.component'; // Ajoutez cette ligne
+import { CgaComponent } from './components/cga/cga.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { PortfolioAdminComponent } from './components/admin/portfolio-admin/portfolio-admin.component';
+import { PortfolioAdminUpdateComponent } from './components/admin/portfolio-admin/portfolio-admin-update/portfolio-admin-update.component';
+import { PortfolioFormComponent } from './components/forms/portfolio-form/portfolio-form.component'; // Ajoutez cette ligne
 
 
 
@@ -131,6 +135,10 @@ import { CgaComponent } from './components/cga/cga.component'; // Ajoutez cette 
     BreadcrumbComponent,
     CguComponent,
     CgaComponent,
+    PortfolioComponent,
+    PortfolioAdminComponent,
+    PortfolioAdminUpdateComponent,
+    PortfolioFormComponent,
   ],
   imports: [
     BrowserModule,
