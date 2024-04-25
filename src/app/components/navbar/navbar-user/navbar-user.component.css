@@ -1,6 +1,13 @@
 .navbar-color {
   background-color: #753742;
 }
-.nav {
-  height: 60px;
+
+a {
+  color: #D8BD8A;
+}
+
+#img-navbar
+{
+  height: 70px;
+  width: auto;
 }

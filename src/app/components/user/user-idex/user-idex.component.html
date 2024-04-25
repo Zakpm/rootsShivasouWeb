@@ -1,15 +1,45 @@
 <div class="app-container">
   <app-navbar-user></app-navbar-user>
   <div class="main-content">
-    <h1 id="title" class="text-center my-3 display-5" >Hello {{firstName}} {{lastName}}</h1>
-  </div>
+    <h1  class="text-center my-3 display-5 title" >Espace personnel de {{firstName}} {{lastName}}</h1>
+    <div class="container">
 
-  <div class="container my-5">
-    <div class="row">
-      
+      <div class="row mt-5">
+        <h2 class="title" >Mes articles favoris</h2>
+      </div>
+
+      <div class="row">
+        <div class="container text-center my-5">
+          <div *ngIf="favoritePosts.length > 0; else noPosts" class="row">
+            <div class="card-group">
+              <div *ngFor="let post of favoritePosts" class="col-md-4 mb-3">
+                <div class="card card-config">
+                  <img *ngIf="post.image" [src]="imageUrlBase + post.image[0]" alt="{{ post.title }}" class="card-img-top img-fluid">
+                  <div class="card-body">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text" [innerHTML]="post.content | truncate:150"></p>
+                    <a [routerLink]="['/showPost', post.id]" class="btn btn-primary">Lire</a> <!-- Bouton "Lire" -->
+                    <!--bouton favori-->
+                    <div class="text-end">
+                      <span *ngIf="isUserLoggedIn() && post.id !== undefined" (click)="toggleFavorite(post.id)" class="favorite-icon">
+                        <i class="fas fa-star" [ngClass]="{ 'favorited': isPostFavorited(post.id) }"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-template #noPosts>
+            <p>Aucun post favori trouvé.</p>
+          </ng-template>
+        </div>
+
+      </div>
     </div>
   </div>
 
 
-  <app-footer-user></app-footer-user>
+
+  <app-footer></app-footer>
 </div>

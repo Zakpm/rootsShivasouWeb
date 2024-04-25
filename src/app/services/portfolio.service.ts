@@ -35,25 +35,4 @@ export class PortfolioService {
     return this.http.delete(`${this.baseUrl}/portfolio/${id}`);
   }
 
-  updatePortfolio(id: number, images: FormData | null, deletedImage: string | null): Observable<PortfolioDTO> {
-    const formData = new FormData();
-
-    // Si de nouvelles images sont fournies, les ajouter
-    if (images) {
-      for (let i = 0; i < images.getAll('image').length; i++) {
-        formData.append('image', images.getAll('image')[i]);
-      }
-    }
-
-    // Si une image doit être supprimée, ajouter le nom de l'image supprimée
-    if (deletedImage) {
-      formData.append('deletedImage', deletedImage);
-    }
-
-    return this.http.put<PortfolioDTO>(`${this.baseUrl}/portfolio/${id}`, formData);
-  }
-
-
-
-
 }

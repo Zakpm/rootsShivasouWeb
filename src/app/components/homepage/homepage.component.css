@@ -138,4 +138,8 @@ p {
   #container-article {
     margin-top: -100px;
   }
+
+  #img-homepage {
+    padding-bottom: 30px;
+  }
 }

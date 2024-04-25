@@ -44,6 +44,6 @@ export class DataService {
     // Modifier l'URL en fonction de  API et de la prise en charge de la pagination
     return this.http.get<PostDTO[]>(`${this.baseUrl}/posts?page=${offset}&limit=${limit}`);
   }
-
+  
 
 }

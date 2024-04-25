@@ -23,5 +23,11 @@
   #img-homepage {
     max-width: 100%;
   }
-
 }
+
+@media screen and (max-width: 480px) {
+  #img-homepage {
+    display: none !important; /* Cache l'image en dessous de 480px */
+  }
+}
+

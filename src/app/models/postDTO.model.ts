@@ -10,4 +10,5 @@ export interface PostDTO {
   isPublished: boolean;
   isFeatured: boolean;
   publishedAt: Date;
+  isFavorite?: boolean;
 }

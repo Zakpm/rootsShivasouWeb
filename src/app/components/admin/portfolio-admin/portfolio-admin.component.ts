@@ -29,34 +29,21 @@ export class PortfolioAdminComponent implements OnInit {
     );
   }
 
-  // Méthode pour mettre à jour un portfolio avec une nouvelle image
-  updatePortfolioWithNewImage(id: number, newImage: File, deletedImage: string): void {
-    const formData = new FormData();
-    formData.append('image', newImage);
-
-    this.portfolioService.updatePortfolio(id, formData, deletedImage).subscribe(
-      updatedPortfolio => {
-        // Mise à jour réussie, recharger les données
-        this.reloadData();
-      },
-      error => {
-        console.error('Erreur lors de la mise à jour du portfolio avec une nouvelle image', error);
-      }
-    );
-  }
 
   // Méthode pour supprimer une image d'un portfolio
-  deleteImageFromPortfolio(portfolioId: number, deletedImage: string): void {
-    this.portfolioService.updatePortfolio(portfolioId, null, deletedImage).subscribe(
-      updatedPortfolio => {
+  deleteImageFromPortfolio(portfolioId: number): void {
+    this.portfolioService.deletePortfolio(portfolioId).subscribe(
+      () => {
         // Suppression réussie, recharger les données
         this.reloadData();
       },
       error => {
-        console.error('Erreur lors de la suppression de l\'image du portfolio', error);
+        console.error('Erreur lors de la suppression du portfolio', error);
       }
     );
   }
+
+
 
   // Méthode pour récupérer tous les portfolios avec leurs images
   getAllPortfolios(): void {
@@ -82,7 +69,7 @@ export class PortfolioAdminComponent implements OnInit {
       event.preventDefault(); // Empêcher le comportement par défaut du navigateur
     }
       if (confirm('Êtes-vous sûr de vouloir supprimer cette image ?')) {
-      this.deleteImageFromPortfolio(portfolioId, image);
+      this.deleteImageFromPortfolio(portfolioId);
     } else {
       console.log('Suppression annulée');
     }

@@ -3,6 +3,7 @@ import { InscriptionService } from 'src/app/services/inscription.service';
 import { DataService } from 'src/app/services/data.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { ContactService } from 'src/app/services/contact.service';
+import { PortfolioService } from 'src/app/services/portfolio.service';
 
 @Component({
   selector: 'app-index',
@@ -14,11 +15,13 @@ export class IndexComponent implements OnInit {
   postsCount: number = 0;
   categoriesCount: number = 0;
   contactCount: number = 0;
+  portfolioCount: number = 0;
   constructor (
     private userService: InscriptionService,
     private postService: DataService,
     private categoryService: CategoryService,
-    private contactService: ContactService
+    private contactService: ContactService,
+    private portfolioService: PortfolioService
 
     ) {
 
@@ -42,8 +45,13 @@ export class IndexComponent implements OnInit {
 
     this.contactService.getAllContacts().subscribe(
       (contact) => this.contactCount = contact.length,
-      (error) => console.error('Erreur lors de la récupération des catégories', error)
+      (error) => console.error('Erreur lors de la récupération des contact', error)
 
+    )
+
+    this.portfolioService.getAllPortfolios().subscribe(
+      (portfolio) => this.portfolioCount = portfolio.length,
+      (error) => console.error('Erreur lors de la récupération des images', error)
     )
 
 

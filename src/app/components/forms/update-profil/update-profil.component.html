@@ -1,6 +1,6 @@
 <div class="container my-5">
   <div class="row">
-    <div class="col-md-8 mx-auto bg-white shadow rounded">
+    <div class="col-md-8 mx-auto shadow rounded formBgColor ">
       <form [formGroup]="updateForm" (ngSubmit)="onSubmit()" class="my-3 mx-3" >
         <div class="row">
           <div class="col-md-6 mb-2">
@@ -22,7 +22,7 @@
             <input type="text" formControlName="nickname" id="nickname" class="form-control">
           </div>
         </div>
-        <button type="submit" class="btn btn-primary my-3">Submit</button>
+        <button type="submit" class="btn buttonColor my-3">Modifier</button>
       </form>
     </div>
   </div>

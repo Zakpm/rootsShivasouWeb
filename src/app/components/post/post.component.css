@@ -44,6 +44,7 @@
 
 .btn {
   background-color: #B80407;
+  border-color: #B80407 ;
   width: 100px;
   color: white;
 }
@@ -56,4 +57,18 @@ h1 {
   font-family: "League Spartan";
   font-weight: 700;
   color: #918A00;;
+}
+
+.favorite-icon {
+  cursor: pointer;
+  margin-top: 50px;
+
+}
+
+.favorite-icon i {
+  font-size: 1.5rem;
+}
+
+.favorited {
+  color: gold; /* Change la couleur de l'icône lorsqu'elle est favorisée */
 }

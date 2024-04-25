@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PortfolioService } from 'src/app/services/portfolio.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class PortfolioFormComponent implements OnInit {
   @Input() portfolioId: number; // Input pour recevoir l'ID du portfolio depuis le composant parent
   photoForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private portfolioService: PortfolioService) {
+  constructor(private formBuilder: FormBuilder, private portfolioService: PortfolioService, private router: Router) {
     this.portfolioId = 0;
     // Créer le formulaire avec les champs nécessaires
     this.photoForm = this.formBuilder.group({
@@ -33,13 +34,16 @@ export class PortfolioFormComponent implements OnInit {
         }
       }
 
-      this.portfolioService.updatePortfolio(this.portfolioId, formData, null).subscribe(
-        updatedPortfolio => {
+      // Appeler la méthode createPortfolio du service pour créer un nouveau portfolio
+      this.portfolioService.createPortfolio(this.portfolioId, formData).subscribe(
+        createdPortfolio => {
           // Traitement réussi, réinitialisation du formulaire
           this.photoForm.reset();
+          alert('image ajoutée au portfolio avec succès !');
+          this.router.navigate(['/admin/portfolio']);
         },
         error => {
-          console.error('Erreur lors de l\'ajout de l\'image au portfolio', error);
+          console.error('Erreur lors de la création du portfolio', error);
         }
       );
     } else {
@@ -47,7 +51,5 @@ export class PortfolioFormComponent implements OnInit {
       console.error('Le formulaire est invalide');
     }
   }
-
-
 
 }

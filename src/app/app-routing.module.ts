@@ -56,7 +56,7 @@ const routes: Routes = [
       { path: 'changeManagement', component: ChangeManagmentComponent },
       { path: 'contentCreator', component: CreationContenuComponent, data: {breadcrumb: 'Digital Expert'} },
       { path: 'artist', component: ArtisteCapillaireComponent, data: {breadcrumb: 'Artiste Capillaire'} },
-      { path: 'inscription', component: InscriptionComponent, data: {breadcrumb: 'Connexion>Inscription'} },
+      { path: 'inscription', component: InscriptionComponent, data: {breadcrumb: 'Inscription'} },
       { path: 'showPost/:id', component: ShowComponent, data: {breadcrumb: 'Article'} },
       { path: 'reset-password/request', component: ReinitialisationComponent, data: {breadcrumb: 'Demande de réinitialisation du mot de passe'} },
       { path: 'mentions-legales', component: MentionsLegalsComponent, data: {breadcrumb: 'Mentions légales'} },

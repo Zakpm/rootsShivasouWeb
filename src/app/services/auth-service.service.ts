@@ -54,6 +54,11 @@ export class AuthService {
     localStorage.removeItem('jwtToken');
   }
 
+  isLoggedIn(): boolean {
+    const token = this.getJwtToken(); // Récupère le token JWT depuis le localStorage
+    return !!token; // Retourne true si le token JWT est présent, sinon false
+  }
+
   getJwtToken(): string | null {
     return localStorage.getItem('jwtToken');
   }

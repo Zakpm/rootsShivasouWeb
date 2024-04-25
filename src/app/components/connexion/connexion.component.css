@@ -3,3 +3,29 @@ h1 {
   font-weight: 700;
   color: #918A00;;
 }
+
+.background-container {
+  background-image: url('/assets/images/connexion.jpeg');
+  background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
+  background-position: center; /* Centre l'image dans le conteneur */
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
+  padding-top: 1px; /* Ajoute un décalage pour éviter que le titre ne soit masqué par l'image */
+  position: relative; /* Permet de positionner correctement le contenu au-dessus de l'image */
+}
+
+.form-container {
+  position: relative; /* Permet de positionner correctement le formulaire */
+  top: 130px; /* Ajustez cette valeur pour déplacer le formulaire verticalement */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centre le formulaire horizontalement et verticalement */
+  z-index: 1; /* Ajoutez d'autres styles de positionnement si nécessaire */
+}
+
+@media screen and (max-width: 1024px) {
+  .background-container {
+    background-image: none; /* Supprime l'image au-dessus de 1024px de largeur */
+  }
+}
+
+
+
