@@ -16,6 +16,11 @@ p {
   font-family: "Lato";
 }
 
+pdf-viewer {
+  width: 100%;
+  height: 515px;
+}
+
 .img-projets {
   max-height: 300px;
   width: auto;
@@ -26,6 +31,11 @@ p {
   width: auto;
 }
 
+.gif {
+ height: 100%;
+ width: auto;
+}
+
 @media (min-width: 820px) {
   .wave {
     margin-top: -100px;
@@ -34,3 +44,4 @@ p {
     margin-top: -100px;
   }
 }
+

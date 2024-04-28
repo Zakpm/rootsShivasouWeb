@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { jwtDecode } from 'jwt-decode';
 import { environmentAuth } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 
 interface LoginRequest {
@@ -24,7 +25,7 @@ export class AuthService {
 
   verificationErrorMessage: string = ''; // Propriété pour la vérification du compte
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   login(login: string, password: string): Observable<JwtResponse> {
     return this.http.post<JwtResponse>(`${this.apiUrl}/login`, { login, password }).pipe(
@@ -69,5 +70,19 @@ export class AuthService {
       return jwtDecode(token);
     }
     return null;
+  }
+
+  checkTokenValidity(): void {
+    const token = this.getJwtToken();
+    if (token) {
+      const decodedToken = jwtDecode<any>(token);
+      const currentTimestamp = Math.floor(Date.now() / 1000);
+      if (decodedToken.exp < currentTimestamp) {
+        // Le JWT a expiré, déconnectez l'utilisateur
+        this.logout();
+        // Redirigez l'utilisateur vers la page de connexion ou une autre page appropriée
+        this.router.navigate(['/connexion']);
+      }
+    }
   }
 }

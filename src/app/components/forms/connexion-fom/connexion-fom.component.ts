@@ -22,6 +22,7 @@ export class ConnexionFomComponent {
       login: ['', Validators.required], // Validators.email si le login est un email
       password: ['', Validators.required]
     });
+
   }
 
   onLogin(): void {
@@ -54,4 +55,5 @@ export class ConnexionFomComponent {
     } else if (decodedToken.roles.includes('ROLE_USER')) {
       this.router.navigate(['/user/index']);    }
   }
+  
 }

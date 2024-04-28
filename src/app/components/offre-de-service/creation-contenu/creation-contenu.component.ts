@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./creation-contenu.component.css']
 })
 export class CreationContenuComponent implements OnInit {
+  pdfSrc = 'assets/pdf/digital-learning.pdf';
 
   constructor (private router: Router) {}
 

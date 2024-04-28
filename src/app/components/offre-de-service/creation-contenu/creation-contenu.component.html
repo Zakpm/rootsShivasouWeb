@@ -52,8 +52,11 @@
     </div>
     <!-- Colonne pour l'image -->
     <div class="col-md-6 col-sm-12 mt-5">
-      <iframe title="pdf" src="assets/pdf/digital-learning.pdf" width="100%" height="515px" readonly></iframe>
-    </div>
+      <pdf-viewer [src]="pdfSrc"
+      [render-text]="true"
+      [original-size]="false"
+    ></pdf-viewer>
+  </div>
   </div>
 </div>
 
@@ -81,8 +84,8 @@
         Illum vel, a, laudantium tempore natus eos recusandae rem nulla amet totam cum et doloribus necessitatibus temporibus officiis repellat incidunt repudiandae? Voluptatem culpa dolor temporibus modi nostrum sunt distinctio quo?</p>
         <img class="img-qrcode" src="assets/images/qrcode-liktree.png" alt="">
       </div>
-      <div class="my-5 col-md-6 text-center">
-        <a href="http://google.com" title="image projet"><img class="img-projets img-fluid" src="assets/images/S11-client.png" alt="image projets"></a>
+      <div class="mt-5 col-md-6 text-center">
+        <a href="http://google.com" title="image projet"><img class="img-projets img-fluid" src="assets/images/digital-project.png" alt="image projets"></a>
       </div>
     </div>
   </div>
@@ -113,10 +116,7 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, facilis?
           </p>
           <a routerLink="/contact">
-          <video width="100%" height="auto" controls autoplay loop>
-            <source src="assets/videos/prochainement-dispo.mp4" type="video/mp4">
-            Votre navigateur ne supporte pas la lecture de vidéos.
-          </video>
+          <img class="gif" src="assets/videos/prochainement-disponible.gif" alt="">
           </a>
         </div>
       </div>

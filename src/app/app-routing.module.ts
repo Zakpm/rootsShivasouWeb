@@ -57,7 +57,7 @@ const routes: Routes = [
       { path: 'contentCreator', component: CreationContenuComponent, data: {breadcrumb: 'Digital Expert'} },
       { path: 'artist', component: ArtisteCapillaireComponent, data: {breadcrumb: 'Artiste Capillaire'} },
       { path: 'inscription', component: InscriptionComponent, data: {breadcrumb: 'Inscription'} },
-      { path: 'showPost/:id', component: ShowComponent, data: {breadcrumb: 'Article'} },
+      { path: 'showPost/:id/:slug', component: ShowComponent, data: {breadcrumb: 'Article'} },
       { path: 'reset-password/request', component: ReinitialisationComponent, data: {breadcrumb: 'Demande de réinitialisation du mot de passe'} },
       { path: 'mentions-legales', component: MentionsLegalsComponent, data: {breadcrumb: 'Mentions légales'} },
       { path: 'conditions-generales-utilisation', component: CguComponent, data: {breadcrumb: 'Conditions générales utilisation'} },

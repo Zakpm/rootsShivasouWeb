@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cga.component.css']
 })
 export class CgaComponent implements OnInit {
+  pdfSrc = 'assets/pdf/CGA.pdf';
   constructor (){}
 
   ngOnInit(): void {
-      
+
   }
 }

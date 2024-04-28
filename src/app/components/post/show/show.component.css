@@ -8,3 +8,9 @@
 .btn-carousel {
   background-color: brown;
 }
+
+@media (min-width: 820px) {
+  .iframeVideo {
+    height: 600px;
+  }
+}

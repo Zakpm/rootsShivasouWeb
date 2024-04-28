@@ -22,7 +22,7 @@
 
   <div *ngIf="post.video" class="row my-4">
     <div class="col-12">
-      <iframe title="video YouTube" [src]="getSafeUrl(post.video)" frameborder="0" width="560" height="315"  allowfullscreen></iframe>
+      <iframe class="iframeVideo" title="video YouTube" [src]="getSafeUrl(post.video)" frameborder="0" width="100%" height="350"  allowfullscreen></iframe>
     </div>
   </div>
 

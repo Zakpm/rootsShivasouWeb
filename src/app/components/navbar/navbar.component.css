@@ -18,9 +18,25 @@ a {
   padding-right: 100px;
 }
 
+.navbar-color {
+  background-color: #FFFF;
+}
+
 hr {
   color: #D8BD8A;
 }
+
+@media screen and (max-width: 768px) {
+  .navbar.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Assurez-vous que la barre de navigation reste au-dessus du reste du contenu */
+    transition: top 0.9s; /* Ajoutez une transition fluide pour l'effet de disparition/réapparition */
+  }
+}
+
+
 
 @media (min-width: 1024px) {
   #img-navbar {

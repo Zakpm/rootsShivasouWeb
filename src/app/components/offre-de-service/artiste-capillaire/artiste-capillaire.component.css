@@ -33,14 +33,21 @@ p {
 
 /* taille moyenne d'écran */
 @media (min-width: 1025px) {
-  video {
-    width: 500px;
-    height: 700px;
+  .gif {
+    transform: scale(2.7);
+    padding-left: 50px;
   }
 }
 
 @media (min-width: 820px) {
   .wave {
-    margin-top: -100px;
+    margin-top: -80px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .gif {
+      transform: scale(2.0);
+      padding-left: 50px;
+    }
   }
 }

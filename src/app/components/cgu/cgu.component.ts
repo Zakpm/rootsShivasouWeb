@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cgu.component.css']
 })
 export class CguComponent implements OnInit {
-
+  pdfSrc = 'assets/pdf/CGU.pdf';
   constructor () {
 
   }
 
   ngOnInit(): void {
-      
+
   }
 }

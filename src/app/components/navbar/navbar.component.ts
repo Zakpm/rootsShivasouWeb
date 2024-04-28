@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 
@@ -11,11 +11,27 @@ export class NavbarComponent implements OnInit {
   isAdmin: boolean = false;
   isUser: boolean = false;
   isLoggedIn: boolean = false;
+  isSticky: boolean = false;
+  lastScrollPosition: number = 0;
 
-  constructor(private router: Router) {}
+
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.checkUserRole();
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0;
+    if (screenWidth <= 768) {
+    // Détecter le défilement de la page
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    // Déterminer si la barre de navigation doit être collante en remontant la page
+    this.isSticky = scrollPosition < this.lastScrollPosition && scrollPosition > 5;
+    this.lastScrollPosition = scrollPosition;
+    }
   }
 
   checkLoginStatus(): void {

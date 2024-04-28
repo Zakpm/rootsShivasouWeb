@@ -73,6 +73,8 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { PortfolioAdminComponent } from './components/admin/portfolio-admin/portfolio-admin.component';
 import { PortfolioAdminUpdateComponent } from './components/admin/portfolio-admin/portfolio-admin-update/portfolio-admin-update.component';
 import { PortfolioFormComponent } from './components/forms/portfolio-form/portfolio-form.component'; // Ajoutez cette ligne
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
 
 
 
@@ -152,7 +154,8 @@ import { PortfolioFormComponent } from './components/forms/portfolio-form/portfo
     MatFormFieldModule,
     MatInputModule,
     NgbModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    PdfViewerModule,
   ],
   providers: [
     AuthResetGuard,

@@ -100,7 +100,6 @@ p {
   top: -150px; /* Déplace le SVG vers le haut */
 }
 .wave-ban {
-  margin: 0;
   margin-top: -10px;
 
 }
@@ -141,5 +140,15 @@ p {
 
   #img-homepage {
     padding-bottom: 30px;
+  }
+  .container-presentation {
+    margin-top: 5px;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .wave-ban {
+    height: 300px;
   }
 }
