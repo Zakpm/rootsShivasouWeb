@@ -1,7 +1,7 @@
 <div class="container my-5">
   <div class="row justify-content-center">
 
-    <div class="col-md-6">
+    <div class="col-md-12">
         <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
 
           <div class="row">
@@ -41,7 +41,9 @@
               <editor
               apiKey="b4cqqba7tzmug4lm4bdbxifu62788m7ck24u40wz0hebxz5k"
                formControlName="content"
-               id="content">
+               id="content"
+               [init]="editorConfig"
+               >
               </editor>
             </div>
           </div>

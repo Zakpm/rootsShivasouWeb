@@ -74,6 +74,7 @@ import { PortfolioAdminComponent } from './components/admin/portfolio-admin/port
 import { PortfolioAdminUpdateComponent } from './components/admin/portfolio-admin/portfolio-admin-update/portfolio-admin-update.component';
 import { PortfolioFormComponent } from './components/forms/portfolio-form/portfolio-form.component'; // Ajoutez cette ligne
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import {FormatDatePipe} from './pipes/format-date.pipe';
 
 
 
@@ -141,6 +142,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     PortfolioAdminComponent,
     PortfolioAdminUpdateComponent,
     PortfolioFormComponent,
+    FormatDatePipe
   ],
   imports: [
     BrowserModule,

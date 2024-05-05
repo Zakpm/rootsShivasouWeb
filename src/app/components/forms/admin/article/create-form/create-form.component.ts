@@ -15,6 +15,8 @@ export class CreateFormComponent implements OnInit {
   createForm!: FormGroup;
   categories: any[] = [];
   users: UserDTO[] = [];
+  editorConfig: any; // Déclarez la variable editorConfig
+
 
   constructor(
     private fb: FormBuilder,
@@ -33,6 +35,12 @@ export class CreateFormComponent implements OnInit {
       video: [''],
       content: ['', [Validators.required]],
     });
+    // Dans le constructeur ou dans ngOnInit, initialisez editorConfig
+    this.editorConfig = {
+      apiKey: "'b4cqqba7tzmug4lm4bdbxifu62788m7ck24u40wz0hebxz5k'",
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker markdown ',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    };
   }
 
   ngOnInit(): void {
@@ -67,7 +75,7 @@ export class CreateFormComponent implements OnInit {
         console.error('Erreur lors du chargement des catégories', error);
       }
     );
-    
+
     this.inscriptionService.getAllUsers().subscribe(
       data => {
         this.users = data.filter(user => user.roles.includes('ROLE_ADMIN'));

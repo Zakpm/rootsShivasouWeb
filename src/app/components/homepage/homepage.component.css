@@ -66,8 +66,8 @@ h1 {
 }
 
 h2 {
-  font-family: "Lato";
-  font-weight: 400;
+  font-family: "League Spartan";
+  font-weight: 700;
   color: #918A00;
 }
 
@@ -144,7 +144,14 @@ p {
   .container-presentation {
     margin-top: 5px;
   }
+}
 
+ /* ecrans moyens */
+ @media (min-width: 768px) and (max-width: 1023px) {
+  #img-homepage {
+    padding-top: 100px;
+    transform: scale(1.2);
+  }
 }
 
 @media (min-width: 1024px) {

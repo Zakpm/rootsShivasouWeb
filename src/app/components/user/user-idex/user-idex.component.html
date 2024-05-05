@@ -18,7 +18,7 @@
                   <div class="card-body">
                     <h2 class="card-title">{{ post.title }}</h2>
                     <p class="card-text" [innerHTML]="post.content | truncate:150"></p>
-                    <a [routerLink]="['/showPost', post.id]" class="btn btn-primary">Lire</a> <!-- Bouton "Lire" -->
+                    <a [routerLink]="['/showPost', post.id, post.slug]" class="btn btn-primary">Lire</a> <!-- Bouton "Lire" -->
                     <!--bouton favori-->
                     <div class="text-end">
                       <span *ngIf="isUserLoggedIn() && post.id !== undefined" (click)="toggleFavorite(post.id)" class="favorite-icon">

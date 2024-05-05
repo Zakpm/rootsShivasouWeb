@@ -9,8 +9,34 @@
   background-color: brown;
 }
 
+h1 {
+  font-family: "League Spartan";
+  font-weight: 700;
+}
+
+.informations-post1 {
+  margin-bottom: 0px;
+}
+
+.informations-post1, .informations-post2 {
+  font-size: 12px;
+}
+
+/* CSS */
+.img {
+  width: 10px;
+  height: 10px;
+
+}
+
 @media (min-width: 820px) {
   .iframeVideo {
-    height: 600px;
+    height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .video {
+    padding-top: 50px;
   }
 }
