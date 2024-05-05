@@ -15,11 +15,23 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
 
-      // Vérifier si l'utilisateur est déjà connecté au chargement de la page
-    const jwtToken = localStorage.getItem('jwtToken');
-    if (jwtToken) {
-      this.authService.checkTokenValidity();
-    }
+    // Vérifier si l'utilisateur est déjà connecté au chargement de la page
+  const jwtToken = localStorage.getItem('jwtToken');
+  if (jwtToken) {
+    this.checkTokenValidity(jwtToken);
   }
+}
+
+private checkTokenValidity(token: string): void {
+  const decodedToken = jwtDecode<any>(token);
+  const currentTimestamp = Math.floor(Date.now() / 1000);
+  if (decodedToken.exp < currentTimestamp) {
+    // Le JWT a expiré, déconnectez l'utilisateur
+    this.authService.logout();
+    // Redirigez l'utilisateur vers la page de connexion ou une autre page appropriée
+    this.router.navigate(['/connexion']);
+    window.location.reload(); // rafraichir l'état de la navbar
+  }
+}
 
 }
