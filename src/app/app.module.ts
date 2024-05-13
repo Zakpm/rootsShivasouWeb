@@ -75,6 +75,16 @@ import { PortfolioAdminUpdateComponent } from './components/admin/portfolio-admi
 import { PortfolioFormComponent } from './components/forms/portfolio-form/portfolio-form.component'; // Ajoutez cette ligne
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import {FormatDatePipe} from './pipes/format-date.pipe';
+import { ShareIconsModule} from 'ngx-sharebuttons/icons';
+import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { ShareModule } from 'ngx-sharebuttons';
+import { ShareButtonModule } from 'ngx-sharebuttons/button';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+
+
+
+
+
 
 
 
@@ -158,6 +168,12 @@ import {FormatDatePipe} from './pipes/format-date.pipe';
     NgbModule,
     NgbCarouselModule,
     PdfViewerModule,
+    ShareButtonModule,
+    ShareIconsModule,
+    FontAwesomeModule,
+    ShareModule,
+    ShareButtonsModule
+
   ],
   providers: [
     AuthResetGuard,
@@ -165,4 +181,5 @@ import {FormatDatePipe} from './pipes/format-date.pipe';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ }

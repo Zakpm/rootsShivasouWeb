@@ -3,15 +3,19 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { PostDTO } from 'src/app/models/postDTO.model';
 import { DataService } from 'src/app/services/data.service';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
+
 
 @Component({
   selector: 'app-show',
   templateUrl: './show.component.html',
-  styleUrls: ['./show.component.css']
+  styleUrls: ['./show.component.css'],
 })
 export class ShowComponent implements OnInit {
   post: PostDTO | null = null;
   imageUrlBase: string; // Créez une propriété pour stocker les données récupérées
+  faCoffee = faCoffee;
 
 
   constructor(private dataService: DataService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
@@ -40,5 +44,9 @@ export class ShowComponent implements OnInit {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#\&\?]*).*/;
     const match = url.match(regExp);
     return (match && match[2].length === 11) ? match[2] : '';
+  }
+
+  getCurrentUrl(): string {
+    return window.location.href;
   }
 }
