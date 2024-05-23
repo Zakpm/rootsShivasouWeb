@@ -42,6 +42,14 @@
       <share-button button="email"></share-button>
       <share-button button="copy"></share-button>
     </div>
+    <div class="col-md-7 mt-5">
+      <!--bouton favori-->
+      <div class="icon">
+        <span *ngIf="isUserLoggedIn() && post.id !== undefined" (click)="toggleFavorite(post.id)" class="favorite-icon">
+          <i class="fas fa-star" [ngClass]="{ 'favorited': isPostFavorited(post.id) }"></i>
+        </span>
+      </div>
+    </div>
   </div>
 
 

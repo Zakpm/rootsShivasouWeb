@@ -30,6 +30,19 @@ h1 {
 
 }
 
+.favorite-icon {
+  cursor: pointer;
+
+}
+
+.favorite-icon i {
+  font-size: 1.5rem;
+}
+
+.favorited {
+  color: gold; /* Change la couleur de l'icône lorsqu'elle est favorisée */
+}
+
 @media (min-width: 820px) {
   .iframeVideo {
     height: 500px;
@@ -39,5 +52,9 @@ h1 {
 @media (max-width: 768px) {
   .video {
     padding-top: 50px;
+  }
+
+  .icon {
+    margin-top: -20px;
   }
 }

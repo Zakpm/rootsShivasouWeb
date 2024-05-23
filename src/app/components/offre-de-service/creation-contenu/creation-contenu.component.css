@@ -45,3 +45,22 @@ pdf-viewer {
   }
 }
 
+@media (min-width: 1024px) {
+  #img-digital-learning {
+    max-height: 230px;
+  }
+}
+
+@media (max-width: 576px) {
+  #img-digital-learning {
+    display: none;
+  }
+}
+
+@media (max-width: 820px) {
+  #img-digital-learning {
+    max-height: 170px;
+  }
+}
+
+

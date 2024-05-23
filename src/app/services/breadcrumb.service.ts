@@ -7,15 +7,17 @@ import { filter } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class BreadcrumbService {
-  breadcrumbs$ = new BehaviorSubject<Data[]>([]);
+  private breadcrumbs: Data[] = [];
+  breadcrumbs$ = new BehaviorSubject<Data[]>(this.breadcrumbs);
 
   constructor(private router: Router) {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       const root = this.router.routerState.snapshot.root;
-      const breadcrumbs: Data[] = this.generateBreadcrumbTrail(root);
-      this.breadcrumbs$.next(breadcrumbs);
+      const newBreadcrumbs: Data[] = this.generateBreadcrumbTrail(root);
+      this.breadcrumbs = this.mergeBreadcrumbs(this.breadcrumbs, newBreadcrumbs);
+      this.breadcrumbs$.next(this.breadcrumbs);
     });
   }
 
@@ -29,7 +31,6 @@ export class BreadcrumbService {
       crumbs.push(breadcrumbData);
     }
 
-    // Parcours de tous les enfants de manière récursive
     for (const child of route.children) {
       this.generateBreadcrumbTrail(child, crumbs);
     }
@@ -46,5 +47,18 @@ export class BreadcrumbService {
       route = route.parent!;
     }
     return '/' + segments.join('/');
+  }
+
+  private mergeBreadcrumbs(existingBreadcrumbs: Data[], newBreadcrumbs: Data[]): Data[] {
+    const merged = [...existingBreadcrumbs];
+    newBreadcrumbs.forEach(newCrumb => {
+      const existingIndex = merged.findIndex(crumb => crumb['path'] === newCrumb['path']);
+      if (existingIndex === -1) {
+        merged.push(newCrumb);
+      } else {
+        merged[existingIndex] = newCrumb;
+      }
+    });
+    return merged;
   }
 }

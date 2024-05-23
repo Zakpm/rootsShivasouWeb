@@ -54,7 +54,9 @@ export class NavbarComponent implements OnInit {
   onLogout(): void {
     localStorage.removeItem('jwtToken');
     // Ajoutez ici toute autre logique nécessaire pour la déconnexion
+    this.isLoggedIn = false;
+    this.isAdmin = false;
+    this.isUser = false;
     this.router.navigate(['/connexion']);
-    window.location.reload(); // Pour rafraîchir l'état de la navbar
   }
 }
