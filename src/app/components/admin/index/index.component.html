@@ -4,7 +4,7 @@
 
     <h1 id="title" class="text-center my-3 display-5" >Espace administration</h1>
 
-    <div class="card text-bg-primary mb-3">
+    <div class="card text-bg-primary mb-3 clickable-card" (click)="exportUsersToExcel()" title="Cliquez pour exporter les utilisateurs en Excel">
       <div class="card-header">Nombre d'utilisateurs</div>
       <div class="card-body">
         <p class="card-text">Nombre total d'utilisateurs inscrits : {{ usersCount }}</p>

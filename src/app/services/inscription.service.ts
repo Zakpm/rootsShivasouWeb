@@ -5,6 +5,8 @@ import { UserDTO } from '../models/userDTO.model';
 import { PostDTO } from '../models/postDTO.model';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import * as XLSX from 'xlsx';
+import * as FileSaver from 'file-saver';
 import { environmentCreation } from '../../environments/environment'
 
 @Injectable({
@@ -76,5 +78,32 @@ export class InscriptionService {
     return this.http.put<any>(`${this.baseUrl}/user/${id}`, payload);
   }
 
+  generateExcel(): void {
+    this.getAllUsers().subscribe(users => {
+      const dataToExport = users.map(user => ({
+        id: user.id,
+        first_name: user.first_name,
+        last_name: user.last_name,
+        nickname: user.nickname,
+        email: user.email,
+        date_naissance: user.date_naissance,
+        genre: user.Genre,
+        roles: user.roles.join(', '), // convert array to string
+        postIds: user.postIds.join(', ') // convert array to string
+      }));
+
+      const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(dataToExport);
+      const workbook: XLSX.WorkBook = { Sheets: { 'Users': worksheet }, SheetNames: ['Users'] };
+      const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+      this.saveAsExcelFile(excelBuffer, 'users');
+    });
+  }
+
+  private saveAsExcelFile(buffer: any, fileName: string): void {
+    const data: Blob = new Blob([buffer], { type: EXCEL_TYPE });
+    FileSaver.saveAs(data, fileName + '_export_' + new Date().getTime() + EXCEL_EXTENSION);
+  }
 
 }
+const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+const EXCEL_EXTENSION = '.xlsx';

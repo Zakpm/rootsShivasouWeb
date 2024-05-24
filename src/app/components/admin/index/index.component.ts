@@ -4,6 +4,7 @@ import { DataService } from 'src/app/services/data.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { ContactService } from 'src/app/services/contact.service';
 import { PortfolioService } from 'src/app/services/portfolio.service';
+import { UserDTO } from 'src/app/models/userDTO.model';
 
 @Component({
   selector: 'app-index',
@@ -16,6 +17,8 @@ export class IndexComponent implements OnInit {
   categoriesCount: number = 0;
   contactCount: number = 0;
   portfolioCount: number = 0;
+  users: UserDTO[] = [];
+
   constructor (
     private userService: InscriptionService,
     private postService: DataService,
@@ -53,7 +56,9 @@ export class IndexComponent implements OnInit {
       (portfolio) => this.portfolioCount = portfolio.length,
       (error) => console.error('Erreur lors de la récupération des images', error)
     )
+  }
 
-
+  exportUsersToExcel(): void {
+    this.userService.generateExcel();
   }
 }
