@@ -32,7 +32,15 @@
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-            ]
+            ],
+            "allowedCommonJsDependencies": [
+							"moment-business",
+							"ng2-pdf-viewer",
+							"pdfjs-dist/build/pdf",
+							"pdfjs-dist/web/pdf_viewer",
+              "pdfjs-dist",
+              "file-saver"
+						]
           },
           "configurations": {
             "production": {

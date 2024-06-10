@@ -8,14 +8,15 @@
           <img *ngIf="post.image" [src]="imageUrlBase + post.image[0]" alt="{{ post.title }}" class="card-img-top img-fluid">
           <div class="card-body">
             <h2 class="card-title">{{ post.title }}</h2>
-            <p class="card-text" [innerHTML]="post.content | truncate:150"></p>
-            <a [routerLink]="['/showPost', post.id, post.slug]" class="btn btn-primary">Lire</a> <!-- Bouton "Lire" -->
-            <!--bouton favori-->
-            <div class="text-end">
+            <div class="div-fav text-end">
+              <!--bouton favori-->
               <span *ngIf="isUserLoggedIn() && post.id !== undefined" (click)="toggleFavorite(post.id)" class="favorite-icon">
                 <i class="fas fa-star" [ngClass]="{ 'favorited': isPostFavorited(post.id) }"></i>
               </span>
             </div>
+            <p class="card-text" [innerHTML]="post.content | truncate:150"></p>
+            <a [routerLink]="['/showPost', post.id, post.slug]" class="btn btn-primary">Lire</a> <!-- Bouton "Lire" -->
+
           </div>
         </div>
       </div>

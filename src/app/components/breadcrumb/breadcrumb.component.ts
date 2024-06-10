@@ -9,6 +9,7 @@ import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
 export class BreadcrumbComponent implements OnInit {
   breadcrumbs: any[] = [];
 
+
   constructor(private breadcrumbService: BreadcrumbService) {}
 
   ngOnInit(): void {

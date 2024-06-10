@@ -17,6 +17,13 @@
   flex-direction: column;
   height: 350px; /* Hauteur fixe pour la carte */
   justify-content: space-between; /* Organise le contenu de la carte */
+  border-radius: 50%; /* Ajoute des coins arrondis */
+  overflow: hidden; /* Assure que le contenu reste à l'intérieur des bords arrondis */
+}
+
+.card-config:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .card-img-top {
@@ -24,6 +31,8 @@
   max-height: 200px; /* Ajustez cette valeur selon vos besoins */
   object-fit: cover; /* Cela permet de couvrir la zone sans déformer l'image */
   width: 100%;
+  border-top-left-radius: 50%; /* Arrondit le coin supérieur gauche */
+  border-top-right-radius: 50%; /* Arrondit le coin supérieur droit */
 }
 
 .card-body {
@@ -31,6 +40,9 @@
   flex-grow: 1;
   background: rgb(184, 4, 7);
   background: linear-gradient(0deg, rgba(184, 4, 7, 0.8), rgba(245, 93, 22, 0.8) 35%, rgba(255, 195, 0, 0.7) 100%);
+  border-bottom-left-radius: 50%; /* Arrondit le coin inférieur gauche */
+  border-bottom-right-radius: 50%; /* Arrondit le coin inférieur droit */
+  overflow: hidden; /* Assure que le contenu reste à l'intérieur des bords arrondis */
 }
 
 .card-title, .card-text {
@@ -54,6 +66,8 @@
   width: 100px;
   color: white;
 }
+
+
 
 #title {
   color: #390001;
