@@ -3,7 +3,7 @@
 
 <div class="container">
   <div class="row justify-content-center">
-    <div *ngFor="let contact of contacts" class="col-md-8">
+    <div *ngIf="contact" class="col-md-8">
       <div class="card my-2">
         <div class="card-body">
           <h5 class="card-title">Message de : {{ contact.first_name }} {{ contact.last_name }}</h5>

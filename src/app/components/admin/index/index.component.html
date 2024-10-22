@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <div class="card text-bg-warning mb-3">
+    <div class="card text-bg-warning mb-3 clickable-card" (click)="exportContactToExcel()" title="Cliquez pour exporter les contacts en Excel">
       <div class="card-header">Nombre de contacts</div>
       <div class="card-body">
         <p class="card-text">Nombre total de contacts enregistrés : {{ contactCount }}</p>

@@ -61,4 +61,9 @@ export class IndexComponent implements OnInit {
   exportUsersToExcel(): void {
     this.userService.generateExcel();
   }
+
+  exportContactToExcel(): void {
+    this.contactService.generateExcel();
+  }
+
 }

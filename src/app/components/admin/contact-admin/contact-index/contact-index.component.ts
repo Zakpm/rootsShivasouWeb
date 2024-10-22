@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from 'src/app/services/contact.service';
 import { ContactDTO } from 'src/app/models/contactDTO.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contact-index',
@@ -8,17 +9,18 @@ import { ContactDTO } from 'src/app/models/contactDTO.model';
   styleUrls: ['./contact-index.component.css']
 })
 export class ContactIndexComponent implements OnInit {
-  contacts: ContactDTO[] = [];
+  contact: ContactDTO | undefined;
 
-  constructor(private contactService: ContactService) {}
+  constructor(private contactService: ContactService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.contactService.getAllContacts().subscribe(
-      (data: ContactDTO[]) => {
-        this.contacts = data;
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.contactService.getContactById(id).subscribe(
+      (data: ContactDTO) => {
+        this.contact = data;
       },
       (error) => {
-        console.error('Erreur lors de la récupération des contacts', error);
+        console.error('Erreur lors de la récupération du contact', error);
       }
     );
   }

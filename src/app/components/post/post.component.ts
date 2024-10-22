@@ -15,7 +15,7 @@ export class PostComponent implements OnInit {
   imageUrlBase: string; // Créez une propriété pour stocker les données récupérées
   paginatedPosts: PostDTO[] = []; // Posts pour la page actuelle
   currentPage: number = 1;
-  pageSize: number = 9; // Nombre de posts par page
+  pageSize: number = 6; // Nombre de posts par page
   totalPosts: number = 0;
   totalPageCount: number = 0;
   favoriteId: number | undefined;
